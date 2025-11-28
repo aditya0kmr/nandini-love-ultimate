@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Ultimate 3D Interactive Love Website for Nandini - Built with React 18, TypeScript, and Vite" />
+    <meta name="theme-color" content="#FF1493" />
+    <meta name="color-scheme" content="dark" />
+    <title>Nandini - The Ultimate Love Website</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 100%; height: 100%; font-family: 'Segoe UI', sans-serif; background: #0f0f0f; color: #ffffff; overflow-x: hidden; }
+      #root { width: 100%; height: 100%; }
+      .vite-splash { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; background: linear-gradient(135deg, #FF1493 0%, #FF69B4 100%); animation: fadeOut 0.3s ease-in-out 2.7s forwards; }
+      .vite-splash-spinner { width: 60px; height: 60px; border: 4px solid rgba(255, 255, 255, 0.3); border-top-color: white; border-radius: 50%; animation: spin 1s linear infinite; }
+      @keyframes spin { to { transform: rotate(360deg); } }
+      @keyframes fadeOut { to { opacity: 0; visibility: hidden; } }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div class="vite-splash"><div class="vite-splash-spinner"></div></div>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
