@@ -1,0 +1,115 @@
+/* Mobile First Approach - XS (320px) */
+@media (max-width: 640px) {
+  body {
+    font-size: 14px;
+  }
+  
+  h1 { font-size: 1.75rem !important; }
+  h2 { font-size: 1.5rem !important; }
+  h3 { font-size: 1.25rem !important; }
+  
+  .container {
+    padding: var(--spacing-md);
+  }
+  
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  
+  nav {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+  
+  button {
+    width: 100%;
+  }
+}
+
+/* Tablet - SM (640px) */
+@media (min-width: 641px) and (max-width: 768px) {
+  h1 { font-size: 2rem !important; }
+  h2 { font-size: 1.75rem !important; }
+  
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Medium - MD (768px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  h1 { font-size: 2.5rem !important; }
+  h2 { font-size: 2rem !important; }
+  
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Large - LG (1024px) */
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Extra Large - XL (1280px) */
+@media (min-width: 1281px) and (max-width: 1536px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* 2XL (1536px+) */
+@media (min-width: 1537px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Tablet Landscape */
+@media (orientation: landscape) and (max-height: 600px) {
+  nav {
+    padding: var(--spacing-sm);
+  }
+  
+  h1 {
+    margin: var(--spacing-sm) 0;
+  }
+}
+
+/* Touch Devices */
+@media (hover: none) and (pointer: coarse) {
+  button:active {
+    transform: scale(0.95);
+  }
+  
+  a:active {
+    opacity: 0.6;
+  }
+}
+
+/* Retina Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: var(--background);
+    color: var(--white);
+  }
+}
