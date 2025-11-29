@@ -1,3 +1,4 @@
+100
 <!DOCTYPE html>
 <html>
 <head>
@@ -72,29 +73,55 @@
     </div>
   </div>
 
-  <div id="letters" class="pages">
-    <div class="container">
-      <h1 style="text-align:center;margin:40px 0">💌 Love Letters</h1>
-      <div style="background:rgba(255,255,255,0.1);padding:30px;border-radius:10px;margin:30px 0">
-        <h2>My Dearest Nandini,</h2><br>
-        <p>These are letters from my heart, expressing how much you mean to me. Every word is true, every feeling is real. You make my life beautiful just by being in it.</p><br>
-        <p>I love you more than words can say. You are my everything - my dream, my hope, my future.</p><br>
-        <p style="margin-top:30px">Forever yours,<br>Aditya ❤️</p>
-      </div>
+<div id="love-letters" class="pages">
+  <div class="container">
+    <h1 style="text-align:center;margin:40px 0">📮 Love Letters</h1>
+    <div style="display:flex; justify-content:center; gap:10px; margin-bottom:30px; flex-wrap:wrap;">
+      <button onclick="showLetter(1)" style="padding:10px 20px; background:#ff1493; color:#fff; border:none; border-radius:5px; cursor:pointer; font-weight:bold;">💕 Love Letter</button>
+      <button onclick="showLetter(2)" style="padding:10px 20px; background:#ff69b4; color:#fff; border:none; border-radius:5px; cursor:pointer; font-weight:bold;">😘 Flirt</button>
+      <button onclick="showLetter(3)" style="padding:10px 20px; background:#ff85c1; color:#fff; border:none; border-radius:5px; cursor:pointer; font-weight:bold;">🌹 Sweet</button>
+      <button onclick="showLetter(4)" style="padding:10px 20px; background:#ffa6d5; color:#fff; border:none; border-radius:5px; cursor:pointer; font-weight:bold;">🌙 Midnight</button>
+      <button onclick="showLetter(5)" style="padding:10px 20px; background:#ffc7e0; color:#fff; border:none; border-radius:5px; cursor:pointer; font-weight:bold;">✨ Forever</button>
     </div>
+    <div id="letter1" style="background:rgba(255,255,255,0.1); padding:40px; border-radius:15px; border:2px solid #ff1493; margin:20px 0; min-height:400px;">
+      <h2 style="text-align:center; margin-bottom:30px; color:#ff1493;">💕 My Dearest Nandini,</h2>
+      <p style="font-size:18px; line-height:1.8; margin-bottom:20px;">These are letters from my heart, expressing how much you mean to me. You make my life beautiful just by being in it. I love you more than words can say.</p>
+      <p style="font-size:18px; line-height:1.8; margin-bottom:20px;">Your smile brightens my darkest days. Your presence is all the therapy I need. You're not just my love, you're my home. Forever yours, Aditya ❤️</p>
+    </div>
+    <div id="letter2" style="background:rgba(255,255,255,0.1); padding:40px; border-radius:15px; border:2px solid #ff69b4; margin:20px 0; min-height:400px; display:none;">
+      <h2 style="text-align:center; margin-bottom:30px; color:#ff69b4;">😘 A Little Flirtation,</h2>
+      <p style="font-size:18px; line-height:1.8; margin-bottom:20px;">Do you believe in love at first sight? Because every time I see you, I fall in love with you all over again. Your beauty lights up my world in every way.</p>
+      <p style="font-size:18px; line-height:1.8; margin-bottom:20px;">You're the reason I believe in soulmates. All my love, Your Aditya 💋</p>
+    </div>
+    <div id="letter3" style="background:rgba(255,255,255,0.1); padding:40px; border-radius:15px; border:2px solid #ff85c1; margin:20px 0; min-height:400px; display:none;">
+      <h2 style="text-align:center; margin-bottom:30px; color:#ff85c1;">🌹 Sweet Nothings,</h2>
+      <p style="font-size:18px; line-height:1.8; margin-bottom:20px;">I never knew what love was until I met you. You're the sweetest thing that ever happened to me. When I'm with you, everything feels right.</p>
+      <p style="font-size:18px; line-height:1.8; margin-bottom:20px;">Thank you for being my rock. With all my heart, Aditya 🌹</p>
+    </div>
+    <div id="letter4" style="background:rgba(255,255,255,0.1); padding:40px; border-radius:15px; border:2px solid #ffa6d5; margin:20px 0; min-height:400px; display:none;">
+      <h2 style="text-align:center; margin-bottom:30px; color:#ffa6d5;">🌙 Midnight Confessions,</h2>
+      <p style="font-size:18px; line-height:1.8; margin-bottom:20px;">It's 3 AM, and I can't sleep because I'm thinking of you. Every little thing about you drives me crazy in the best way possible.</p>
+      <p style="font-size:18px; line-height:1.8; margin-bottom:20px;">Under the moonlight, I want to tell you - you're my greatest adventure. Yours till the end of time, Aditya 🌙</p>
+    </div>
+    <div id="letter5" style="background:rgba(255,255,255,0.1); padding:40px; border-radius:15px; border:2px solid #ffc7e0; margin:20px 0; min-height:400px; display:none;">
+      <h2 style="text-align:center; margin-bottom:30px; color:#ffc7e0;">✨ My Forever Promise,</h2>
+      <p style="font-size:18px; line-height:1.8; margin-bottom:20px;">I promise to love you on your darkest days and your brightest. I promise to cherish you more with each passing day.</p>
+      <p style="font-size:18px; line-height:1.8; margin-bottom:20px;">Together, we'll write the greatest love story ever told. Forever and Always, Your Aditya ✨💕</p>
+    </div>
+  </div>
+</div>
   </div>
 
   <div id="gallery" class="pages">
     <div class="container">
       <h1 style="text-align:center;margin:40px 0">📸 Our Photo Gallery</h1>
       <div class="gallery">
-        <div class="gallery-item">📷 Photo 1</div>
-        <div class="gallery-item">📷 Photo 2</div>
-        <div class="gallery-item">📷 Photo 3</div>
-        <div class="gallery-item">📷 Photo 4</div>
-        <div class="gallery-item">📷 Photo 5</div>
-        <div class="gallery-item">📷 Photo 6</div>
-      </div>
+<div class="gallery-item" style="background:linear-gradient(135deg, #ff1493, #ff69b4); padding:3px; border-radius:10px; box-shadow:0 8px 20px rgba(255,20,147,0.4); position:relative; overflow:hidden;"><div style="background:rgba(0,0,0,0.2); padding:15px; border-radius:8px; text-align:center; backdrop-filter:blur(5px);">📸 Photo 1</div></div>
+            <div class="gallery-item" style="background:linear-gradient(135deg, #ff69b4, #ffc0cb); padding:3px; border-radius:10px; box-shadow:0 8px 20px rgba(255,105,180,0.4); position:relative; overflow:hidden;"><div style="background:rgba(0,0,0,0.2); padding:15px; border-radius:8px; text-align:center; backdrop-filter:blur(5px);">📸 Photo 2</div></div>
+            <div class="gallery-item" style="background:linear-gradient(135deg, #ff1493, #9932cc); padding:3px; border-radius:10px; box-shadow:0 8px 20px rgba(153,50,204,0.4); position:relative; overflow:hidden;"><div style="background:rgba(0,0,0,0.2); padding:15px; border-radius:8px; text-align:center; backdrop-filter:blur(5px);">📸 Photo 3</div></div>
+            <div class="gallery-item" style="background:linear-gradient(135deg, #ff85c1, #ffb6d9); padding:3px; border-radius:10px; box-shadow:0 8px 20px rgba(255,182,217,0.4); position:relative; overflow:hidden;"><div style="background:rgba(0,0,0,0.2); padding:15px; border-radius:8px; text-align:center; backdrop-filter:blur(5px);">📸 Photo 4</div></div>
+            <div class="gallery-item" style="background:linear-gradient(135deg, #ff69b4, #ff1493); padding:3px; border-radius:10px; box-shadow:0 8px 20px rgba(255,20,147,0.5); position:relative; overflow:hidden;"><div style="background:rgba(0,0,0,0.2); padding:15px; border-radius:8px; text-align:center; backdrop-filter:blur(5px);">📸 Photo 5</div></div>
+            <div class="gallery-item" style="background:linear-gradient(135deg, #ffa6d5, #ffb6e1); padding:3px; border-radius:10px; box-shadow:0 8px 20px rgba(255,166,213,0.4); position:relative; overflow:hidden;"><div style="background:rgba(0,0,0,0.2); padding:15px; border-radius:8px; text-align:center; backdrop-filter:blur(5px);">📸 Photo 6</div></div>
     </div>
   </div>
 
@@ -184,6 +211,13 @@
       document.querySelectorAll('.pages').forEach(p => p.classList.remove('active'));
       document.getElementById(page).classList.add('active');
     }
+    
+function showLetter(letterNum) {
+  for(let i = 1; i <= 5; i++) {
+    let letter = document.getElementById('letter' + i);
+    if(letter) letter.style.display = (i === letterNum) ? 'block' : 'none';
+  }
+}
 
     function playHeartsGame() {
       let score = 0;
