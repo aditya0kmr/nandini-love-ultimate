@@ -36,6 +36,17 @@
         .message-item { background: rgba(255, 105, 180, 0.15); padding: 15px; margin: 10px 0; border-radius: 10px; border-left: 4px solid var(--primary-color); }
         .milestone { background: rgba(255, 105, 180, 0.1); padding: 15px; margin: 10px 0; border-radius: 10px; text-align: center; }
         @media (max-width: 768px) { h1 { font-size: 2.5rem; } button { font-size: 0.9rem; } }
+        
+/* Isometric Navigation Bar Styles */
+.nav-container { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 999; justify-content: center; flex-wrap: wrap; max-width: 95%; }
+.nav-btn { padding: 10px 14px; background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); color: white; border: none; border-radius: 12px; cursor: pointer; font-weight: 600; font-size: 13px; transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); position: relative; box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2); transform-style: preserve-3d; }
+.nav-btn::before { content: ''; position: absolute; top: -3px; left: 0; right: 0; height: 3px; background: rgba(255, 255, 255, 0.4); border-radius: 12px 12px 0 0; opacity: 0; transition: opacity 0.3s; }
+.nav-btn:hover { transform: translateY(-4px) rotateX(8deg) rotateZ(2deg); box-shadow: 0 8px 25px rgba(255, 105, 180, 0.6), inset 0 2px 0 rgba(255, 255, 255, 0.3), 0 -5px 15px rgba(0, 0, 0, 0.2); }
+.nav-btn:hover::before { opacity: 1; }
+.nav-btn.active { box-shadow: 0 6px 20px rgba(255, 105, 180, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 105, 180, 0.5); }
+@keyframes isoFloat { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-8px); } }
+.nav-btn { animation: isoFloat 3s ease-in-out infinite; }
+.nav-btn:nth-child(1) { animation-delay: 0s; } .nav-btn:nth-child(2) { animation-delay: 0.15s; } .nav-btn:nth-child(3) { animation-delay: 0.3s; } .nav-btn:nth-child(4) { animation-delay: 0.45s; } .nav-btn:nth-child(5) { animation-delay: 0.6s; } .nav-btn:nth-child(6) { animation-delay: 0.75s; } .nav-btn:nth-child(7) { animation-delay: 0.9s; } .nav-btn:nth-child(8) { animation-delay: 1.05s; }
     </style>
 </head>
 <body><div class="floating-hearts" id="floatingHearts"></div><div id="login" class="login-box glass-card" style="margin-top:5rem;max-width:500px;width:100%;margin-left:auto;margin-right:auto;">
@@ -300,6 +311,12 @@ if (pwd === 'forever') {            document.getElementById('login').style.displ
         const story = localStorage.getItem('story');
         if (story) document.getElementById('displayStory').textContent = story;
         displayMessages();
+            // Initialize isometric navigation bar
+    const navContainer = document.createElement('div');
+    navContainer.className = 'nav-container';
+    const buttons = Array.from(document.querySelectorAll('button')).filter(b => b.textContent.includes('🏠') || b.textContent.includes('💌') || b.textContent.includes('📝') || b.textContent.includes('🎞') || b.textContent.includes('🎮') || b.textContent.includes('🎨') || b.textContent.includes('🌟'));
+    buttons.forEach(btn => { btn.classList.add('nav-btn'); btn.onclick = function() { buttons.forEach(b => b.classList.remove('active')); this.classList.add('active'); }; navContainer.appendChild(btn.cloneNode(true)); });
+    document.body.appendChild(navContainer);
     });
 </script>
 </body>
