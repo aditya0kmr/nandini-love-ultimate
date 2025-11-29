@@ -193,6 +193,89 @@
         }
         
         createFloatingHearts();
+        
+// Fix: Add navigation button click handlers
+const contentDiv = document.getElementById('content');
+const navButtons = document.querySelectorAll('#floating-nav button');
+
+const sections = {
+  'Home': {
+    title: '❤️ Our Story ❤️',
+    heading: '✨ Welcome to Our World ✨',
+    text: 'This is our special space created with love just for you!',
+    subtext: 'We\'ve been together for 684 amazing days!'
+  },
+  'Memories': {
+    title: '❤️ Our Beautiful Memories ❤️',
+    heading: '📌 Cherished Moments',
+    text: 'Every moment with you is precious and unforgettable.',
+    subtext: 'These memories keep me smiling every day...'
+  },
+  'Story': {
+    title: '❤️ Our Love Story ❤️',
+    heading: '💫 Once Upon a Time...',
+    text: 'It all started with a smile, a look, and a feeling.',
+    subtext: 'And now you\'re my favorite chapter in life.'
+  },
+  'Photos': {
+    title: '❤️ Gallery of Love ❤️',
+    heading: '🖼️ Picture Perfect Moments',
+    text: 'Every photo captures a moment frozen in time with you.',
+    subtext: 'Thousands of moments, millions of memories.'
+  },
+  'Games': {
+    title: '❤️ Games & Fun ❤️',
+    heading: '🎮 Let\'s Play Together',
+    text: 'Creating fun memories together is what life is all about.',
+    subtext: 'Laughter is the best medicine, especially with you.'
+  },
+  'Messages': {
+    title: '❤️ Special Messages ❤️',
+    heading: '💬 Words From the Heart',
+    text: 'These are my thoughts, my feelings, my love for you.',
+    subtext: 'Every word is written with all my love.'
+  },
+  'Draw': {
+    title: '❤️ Artistic Expressions ❤️',
+    heading: '🎭 Creative Love',
+    text: 'Drawing inspiration from my love for you.',
+    subtext: 'Every stroke is a reflection of my heart.'
+  },
+  'Special': {
+    title: '❤️ Special Surprise ❤️',
+    heading: '✨ Something Special ✨',
+    text: 'I have something very special to share with you.',
+    subtext: 'Are you ready? Click here to reveal...',
+    isSpecial: true
+  }
+};
+
+function updateContent(sectionName) {
+  const section = sections[sectionName];
+  if (!section) return;
+  
+  contentDiv.innerHTML = `
+    <h1>${section.title}</h1>
+    <h2>${section.heading}</h2>
+    <p>${section.text}</p>
+    <p id="daysCounter" style="color: #ff6b9d; font-weight: bold; margin-top: 1rem;">${section.subtext}</p>
+    ${section.isSpecial ? '<button id="revealBtn" style="margin-top: 2rem; padding: 10px 20px; background: #ff6b9d; color: white; border: none; border-radius: 20px; cursor: pointer; font-size: 1.1rem;">Reveal Secret ❤️</button>' : ''}
+  `;
+  
+  if (section.isSpecial) {
+    document.getElementById('revealBtn')?.addEventListener('click', () => {
+      alert('🌟 I love you more than words can say! 🌟');
+    });
+  }
+}
+
+navButtons.forEach(btn => {
+  btn.addEventListener('click', function() {
+    const label = this.getAttribute('title') || this.textContent.trim();
+    updateContent(label);
+  });
+});
+
     </script>
 </body>
 </html>
