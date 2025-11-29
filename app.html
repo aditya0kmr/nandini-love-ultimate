@@ -1,245 +1,502 @@
-100
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Nandini - The Ultimate Love Website</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Arial', sans-serif; background: linear-gradient(135deg, #1a0033, #2d0052); color: #fff; min-height: 100vh; }
-    nav { position: fixed; top: 0; width: 100%; background: rgba(0,0,0,0.8); padding: 20px; z-index: 1000; display: flex; gap: 30px; align-items: center; }
-    nav a { color: #fff; text-decoration: none; transition: 0.3s; cursor: pointer; }
-    nav a:hover { color: #ff1493; }
-    .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-    .login { display: flex; justify-content: center; align-items: center; height: 100vh; background: linear-gradient(135deg, #ff1493, #1a0033); }
-    .login-box { background: rgba(0,0,0,0.7); padding: 40px; border-radius: 10px; width: 300px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
-    .login-box h1 { margin-bottom: 30px; text-align: center; }
-    .login-box input { width: 100%; padding: 12px; margin: 10px 0; border: none; border-radius: 5px; background: #333; color: #fff; }
-    .login-box button { width: 100%; padding: 12px; margin-top: 20px; background: #ff1493; border: none; border-radius: 5px; color: #fff; font-weight: bold; cursor: pointer; transition: 0.3s; }
-    .login-box button:hover { background: #ff69b4; }
-    .error-msg { color: #ff4757; font-size: 12px; margin-top: 10px; text-align: center; }
-    .hero { background: linear-gradient(135deg, #ff1493, #1a0033); padding: 100px 20px; text-align: center; }
-    .hero h1 { font-size: 48px; margin-bottom: 20px; animation: fadeIn 1s ease-in; }
-    .hero p { font-size: 20px; margin-bottom: 30px; opacity: 0.9; }
-    .pages { display: none; padding: 80px 20px; }
-    .pages.active { display: block; animation: fadeIn 0.5s ease-in; }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    .quality-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin: 40px 0; }
-    .quality-card { background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; border: 2px solid #ff1493; transition: transform 0.3s; }
-    .quality-card:hover { transform: translateY(-5px); }
-    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; margin: 40px 0; }
-    .gallery-item { background: rgba(255,255,255,0.1); padding: 15px; border-radius: 10px; text-align: center; cursor: pointer; transition: 0.3s; }
-    .gallery-item:hover { background: rgba(255,20,147,0.3); transform: scale(1.05); }
-    .game { background: rgba(255,255,255,0.1); padding: 30px; border-radius: 10px; margin: 20px 0; border: 2px solid #ff1493; text-align: center; }
-    .game button { padding: 10px 30px; background: #ff1493; border: none; border-radius: 5px; color: #fff; font-weight: bold; cursor: pointer; margin: 10px 5px; transition: 0.3s; }
-    .game button:hover { background: #ff69b4; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love 💖</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ff69b4;
+            --secondary-color: #ff1493;
+            --accent-color: #ffffff;
+            --bg-dark: #1a1a2e;
+            --bg-darker: #0f0f1e;
+            --text-light: #ffffff;
+            --text-muted: #b0b0b0;
+            --glass-bg: rgba(255, 105, 180, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.2);
+            --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.3);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+            color: var(--text-light);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        @keyframes floatHeart {
+            0% { transform: translateY(100vh) translateX(0) scale(1); opacity: 1; }
+            10% { transform: translateY(90vh) translateX(100px) scale(1.1); }
+            20% { transform: translateY(80vh) translateX(-80px) scale(0.9); }
+            30% { transform: translateY(70vh) translateX(120px) scale(1.05); }
+            50% { transform: translateY(50vh) translateX(-100px) scale(0.95); opacity: 0.8; }
+            80% { transform: translateY(10vh) translateX(80px) scale(1); opacity: 0.5; }
+            100% { transform: translateY(-100vh) translateX(0) scale(1); opacity: 0; }
+        }
+
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 2rem;
+            animation: floatHeart linear infinite;
+            opacity: 0;
+        }
+
+        .heart.active {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .heart { font-size: 1rem; }
+        }
+
+        .glass-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+        }
+
+        .glass-card:hover {
+            background: rgba(255, 105, 180, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-5px);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Dancing Script', cursive;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            text-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+            margin-bottom: 0.5rem;
+            animation: slideInDown 0.8s ease-out;
+        }
+
+        h2 { font-size: 2rem; color: var(--secondary-color); margin-bottom: 1rem; }
+        h3 { font-size: 1.5rem; color: var(--primary-color); margin-bottom: 0.8rem; }
+
+        @keyframes slideInDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideInUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 10px rgba(255, 105, 180, 0.5), 0 0 20px rgba(255, 105, 180, 0.3); }
+            50% { box-shadow: 0 0 20px rgba(255, 105, 180, 0.8), 0 0 30px rgba(255, 105, 180, 0.5); }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        @keyframes confettiFall {
+            to { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+
+        .login-box {
+            max-width: 450px;
+            width: 100%;
+            margin: 3rem auto;
+            padding: 3rem;
+            background: rgba(15, 15, 30, 0.8);
+            border: 2px solid var(--primary-color);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 40px rgba(255, 105, 180, 0.3);
+            animation: slideInUp 0.8s ease-out 0.3s both;
+        }
+
+        .login-box h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+        }
+
+        .subtitle {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 105, 180, 0.3);
+            border-radius: 10px;
+            color: var(--text-light);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            background: rgba(255, 105, 180, 0.1);
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.3);
+        }
+
+        input::placeholder { color: var(--text-muted); }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 1rem;
+            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 105, 180, 0.6);
+        }
+
+        button:active {
+            transform: translateY(-1px);
+        }
+
+        .error-message {
+            color: #ff6b6b;
+            text-align: center;
+            margin-top: 1rem;
+            padding: 10px;
+            background: rgba(255, 107, 107, 0.1);
+            border-left: 4px solid #ff6b6b;
+            border-radius: 5px;
+            display: none;
+            animation: shake 0.5s;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .content {
+            display: none;
+            padding: 2rem;
+            text-align: center;
+            animation: slideInUp 0.6s ease-out;
+        }
+
+        .content.active {
+            display: block;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-buttons button {
+            flex: 1;
+            min-width: 100px;
+            padding: 12px;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 1.5rem; }
+            h3 { font-size: 1.2rem; }
+            .login-box { padding: 2rem; }
+            .nav-buttons button { min-width: 80px; font-size: 0.9rem; }
+            .subtitle { font-size: 1rem; }
+        }
+
+        .section { margin-bottom: 2rem; }
+        .section h3 { margin-top: 2rem; }
+        .section p { line-height: 1.8; color: var(--text-muted); margin-bottom: 1rem; }
+        .confetti {
+            position: fixed;
+            pointer-events: none;
+            animation: confettiFall 3s linear forwards;
+        }
+    </style>
 </head>
 <body>
-  <nav>
-    <div>💕 Nandini Love Ultimate</div>
-    <a onclick="showPage('home')">Home</a>
-    <a onclick="showPage('letters')">Love Letters</a>
-    <a onclick="showPage('gallery')">Gallery</a>
-    <a onclick="showPage('timeline')">Timeline</a>
-    <a onclick="showPage('games')">Surprise</a>
-  </nav>
-
-  <div id="login" class="login">
-    <div class="login-box">
-      <h1>💕 Nandini</h1>
-      <p>Enter with Love</p>
-      <input id="pwd" type="password" placeholder="Password">
-      <button onclick="checkPassword()">Enter</button>
-      <div id="error-msg" class="error-msg"></div>
-    </div>
-  </div>
-
-  <div id="home" class="pages">
-    <div class="hero">
-      <h1>✨ Welcome Back, Nandini ✨</h1>
-      <p>My Ultimate Love Website</p>
-      <p>Made with all my love just for you 💕</p>
-    </div>
-    <div class="container">
-      <h2 style="text-align:center;margin:40px 0">🌟 Top 5 Qualities of Nandini 🌟</h2>
-      <div class="quality-grid">
-        <div class="quality-card"><h3>❤️ Loving</h3><p>Your heart is pure gold</p></div>
-        <div class="quality-card"><h3>😊 Beautiful</h3><p>Inside and out</p></div>
-        <div class="quality-card"><h3>🧠 Smart</h3><p>Brilliant mind</p></div>
-        <div class="quality-card"><h3>😄 Funny</h3><p>Makes me laugh always</p></div>
-        <div class="quality-card"><h3>💪 Strong</h3><p>Strong spirit</p></div>
-      </div>
-    </div>
-  </div>
-
-<div id="letters" class="pages">
-  <div class="container">
-    <h1 style="text-align:center;margin:40px 0">📮 Love Letters</h1>
-    <div style="display:flex; justify-content:center; gap:10px; margin-bottom:30px; flex-wrap:wrap;">
-      <button onclick="showLetter(1)" style="padding:10px 20px; background:#ff1493; color:#fff; border:none; border-radius:5px; cursor:pointer; font-weight:bold;">💕 Love Letter</button>
-      <button onclick="showLetter(2)" style="padding:10px 20px; background:#ff69b4; color:#fff; border:none; border-radius:5px; cursor:pointer; font-weight:bold;">😘 Flirt</button>
-      <button onclick="showLetter(3)" style="padding:10px 20px; background:#ff85c1; color:#fff; border:none; border-radius:5px; cursor:pointer; font-weight:bold;">🌹 Sweet</button>
-      <button onclick="showLetter(4)" style="padding:10px 20px; background:#ffa6d5; color:#fff; border:none; border-radius:5px; cursor:pointer; font-weight:bold;">🌙 Midnight</button>
-      <button onclick="showLetter(5)" style="padding:10px 20px; background:#ffc7e0; color:#fff; border:none; border-radius:5px; cursor:pointer; font-weight:bold;">✨ Forever</button>
-    </div>
-    <div id="letter1" style="background:rgba(255,255,255,0.1); padding:40px; border-radius:15px; border:2px solid #ff1493; margin:20px 0; min-height:400px;">
-      <h2 style="text-align:center; margin-bottom:30px; color:#ff1493;">💕 My Dearest Nandini,</h2>
-      <p style="font-size:18px; line-height:1.8; margin-bottom:20px;">These are letters from my heart, expressing how much you mean to me. You make my life beautiful just by being in it. I love you more than words can say.</p>
-      <p style="font-size:18px; line-height:1.8; margin-bottom:20px;">Your smile brightens my darkest days. Your presence is all the therapy I need. You're not just my love, you're my home. Forever yours, Aditya ❤️</p>
-    </div>
-    <div id="letter2" style="background:rgba(255,255,255,0.1); padding:40px; border-radius:15px; border:2px solid #ff69b4; margin:20px 0; min-height:400px; display:none;">
-      <h2 style="text-align:center; margin-bottom:30px; color:#ff69b4;">😘 A Little Flirtation,</h2>
-      <p style="font-size:18px; line-height:1.8; margin-bottom:20px;">Do you believe in love at first sight? Because every time I see you, I fall in love with you all over again. Your beauty lights up my world in every way.</p>
-      <p style="font-size:18px; line-height:1.8; margin-bottom:20px;">You're the reason I believe in soulmates. All my love, Your Aditya 💋</p>
-    </div>
-    <div id="letter3" style="background:rgba(255,255,255,0.1); padding:40px; border-radius:15px; border:2px solid #ff85c1; margin:20px 0; min-height:400px; display:none;">
-      <h2 style="text-align:center; margin-bottom:30px; color:#ff85c1;">🌹 Sweet Nothings,</h2>
-      <p style="font-size:18px; line-height:1.8; margin-bottom:20px;">I never knew what love was until I met you. You're the sweetest thing that ever happened to me. When I'm with you, everything feels right.</p>
-      <p style="font-size:18px; line-height:1.8; margin-bottom:20px;">Thank you for being my rock. With all my heart, Aditya 🌹</p>
-    </div>
-    <div id="letter4" style="background:rgba(255,255,255,0.1); padding:40px; border-radius:15px; border:2px solid #ffa6d5; margin:20px 0; min-height:400px; display:none;">
-      <h2 style="text-align:center; margin-bottom:30px; color:#ffa6d5;">🌙 Midnight Confessions,</h2>
-      <p style="font-size:18px; line-height:1.8; margin-bottom:20px;">It's 3 AM, and I can't sleep because I'm thinking of you. Every little thing about you drives me crazy in the best way possible.</p>
-      <p style="font-size:18px; line-height:1.8; margin-bottom:20px;">Under the moonlight, I want to tell you - you're my greatest adventure. Yours till the end of time, Aditya 🌙</p>
-    </div>
-    <div id="letter5" style="background:rgba(255,255,255,0.1); padding:40px; border-radius:15px; border:2px solid #ffc7e0; margin:20px 0; min-height:400px; display:none;">
-      <h2 style="text-align:center; margin-bottom:30px; color:#ffc7e0;">✨ My Forever Promise,</h2>
-      <p style="font-size:18px; line-height:1.8; margin-bottom:20px;">I promise to love you on your darkest days and your brightest. I promise to cherish you more with each passing day.</p>
-      <p style="font-size:18px; line-height:1.8; margin-bottom:20px;">Together, we'll write the greatest love story ever told. Forever and Always, Your Aditya ✨💕</p>
-    </div>
-  </div>
-</div>
-  </div>
-
-  <div id="gallery" class="pages">
-    <div class="container">
-      <h1 style="text-align:center;margin:40px 0">📸 Our Photo Gallery</h1>
-      <div class="gallery">
-<div class="gallery-item" style="background:linear-gradient(135deg, #ff1493, #ff69b4); padding:3px; border-radius:10px; box-shadow:0 8px 20px rgba(255,20,147,0.4); position:relative; overflow:hidden;"><div style="background:rgba(0,0,0,0.2); padding:15px; border-radius:8px; text-align:center; backdrop-filter:blur(5px);">📸 Photo 1</div></div>
-            <div class="gallery-item" style="background:linear-gradient(135deg, #ff69b4, #ffc0cb); padding:3px; border-radius:10px; box-shadow:0 8px 20px rgba(255,105,180,0.4); position:relative; overflow:hidden;"><div style="background:rgba(0,0,0,0.2); padding:15px; border-radius:8px; text-align:center; backdrop-filter:blur(5px);">📸 Photo 2</div></div>
-            <div class="gallery-item" style="background:linear-gradient(135deg, #ff1493, #9932cc); padding:3px; border-radius:10px; box-shadow:0 8px 20px rgba(153,50,204,0.4); position:relative; overflow:hidden;"><div style="background:rgba(0,0,0,0.2); padding:15px; border-radius:8px; text-align:center; backdrop-filter:blur(5px);">📸 Photo 3</div></div>
-            <div class="gallery-item" style="background:linear-gradient(135deg, #ff85c1, #ffb6d9); padding:3px; border-radius:10px; box-shadow:0 8px 20px rgba(255,182,217,0.4); position:relative; overflow:hidden;"><div style="background:rgba(0,0,0,0.2); padding:15px; border-radius:8px; text-align:center; backdrop-filter:blur(5px);">📸 Photo 4</div></div>
-            <div class="gallery-item" style="background:linear-gradient(135deg, #ff69b4, #ff1493); padding:3px; border-radius:10px; box-shadow:0 8px 20px rgba(255,20,147,0.5); position:relative; overflow:hidden;"><div style="background:rgba(0,0,0,0.2); padding:15px; border-radius:8px; text-align:center; backdrop-filter:blur(5px);">📸 Photo 5</div></div>
-            <div class="gallery-item" style="background:linear-gradient(135deg, #ffa6d5, #ffb6e1); padding:3px; border-radius:10px; box-shadow:0 8px 20px rgba(255,166,213,0.4); position:relative; overflow:hidden;"><div style="background:rgba(0,0,0,0.2); padding:15px; border-radius:8px; text-align:center; backdrop-filter:blur(5px);">📸 Photo 6</div></div>
-    </div>
-  </div>
-
-  <div id="timeline" class="pages">
-    <div class="container">
-      <h1 style="text-align:center;margin:40px 0">⏰ Our Timeline</h1>
-      <div style="background:rgba(255,255,255,0.1);padding:30px;border-radius:10px">
-        <div style="margin:20px 0;padding:15px;background:rgba(255,20,147,0.2);border-left:4px solid #ff1493">
-          <h3>💕 When We Met</h3>
-          <p>The day my life changed forever</p>
-        </div>
-        <div style="margin:20px 0;padding:15px;background:rgba(255,20,147,0.2);border-left:4px solid #ff1493">
-          <h3>❤️ First Love</h3>
-          <p>The moment I realized you were the one</p>
-        </div>
-        <div style="margin:20px 0;padding:15px;background:rgba(255,20,147,0.2);border-left:4px solid #ff1493">
-          <h3>💞 Forever</h3>
-          <p>My commitment to always love you</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="games" class="pages">
-    <div class="container">
-      <h1 style="text-align:center;margin:40px 0">🎮 Surprise Games</h1>
-      <div class="game">
-        <h2>❤️ Hearts Game</h2>
-        <p>Click to collect hearts!</p>
-        <p id="hearts-score">Score: 0</p>
-        <button onclick="playHeartsGame()">Play!</button>
-      </div>
-      <div class="game">
-        <h2>🎲 Memory Game</h2>
-        <p>Test your memory!</p>
-        <button onclick="playMemoryGame()">Play!</button>
-      </div>
-      <div class="game">
-        <h2>💝 Love Quiz</h2>
-        <p>How well do you know us?</p>
-        <button onclick="playQuiz()">Play!</button>
-      </div>
-      <div class="game">
-        <h2>🎯 Spin to Win</h2>
-        <p>Spin and win surprises!</p>
-        <button onclick="spinWheel()">Spin!</button>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    let authenticated = false;
-
-    function checkPassword() {
-      const pwd = document.getElementById('pwd').value;
-      const errorMsg = document.getElementById('error-msg');
-      
-      // Accept multiple password options for flexibility
-      const validPasswords = ['nanniii', 'Nandini', 'AN', 'forever and always'];
-      
-      if (validPasswords.includes(pwd.toLowerCase().trim())) {
-        authenticated = true;
-        document.getElementById('login').style.display = 'none';
-        document.querySelector('nav').style.display = 'flex';
-        showPage('home');
-        errorMsg.textContent = '';
-      } else {
-        errorMsg.textContent = '❌ Wrong password! Try again, beautiful.';
-        // Shake animation
-        const loginBox = document.querySelector('.login-box');
-        loginBox.style.animation = 'none';
-        setTimeout(() => {
-          loginBox.style.animation = 'shake 0.5s';
-        }, 10);
-      }
-    }
-
-    // Allow Enter key to submit
-    document.addEventListener('DOMContentLoaded', function() {
-      document.getElementById('pwd').addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') checkPassword();
-      });
-    });
-
-    function showPage(page) {
-      if (!authenticated) return;
-      document.querySelectorAll('.pages').forEach(p => p.classList.remove('active'));
-      document.getElementById(page).classList.add('active');
-    }
+    <div class="floating-hearts" id="floatingHearts"></div>
     
-function showLetter(letterNum) {
-  for(let i = 1; i <= 5; i++) {
-    let letter = document.getElementById('letter' + i);
-    if(letter) letter.style.display = (i === letterNum) ? 'block' : 'none';
-  }
-}
+    <div id="login" class="login-box glass-card">
+        <h2>For My Love <span style="font-size: 2rem;">💖✨</span></h2>
+        <p class="subtitle">Enter our secret password</p>
+        <div class="input-group">
+            <label for="password">🔒 Password</label>
+            <input type="password" id="password" placeholder="What do you call me? 😉" autocomplete="off">
+        </div>
+        <button onclick="checkPassword()">Unlock Our World 💋</button>
+        <div class="error-message" id="error"></div>
+    </div>
 
-    function playHeartsGame() {
-      let score = 0;
-      for (let i = 0; i < 10; i++) {
-        score += Math.floor(Math.random() * 10) + 1;
-      }
-      document.getElementById('hearts-score').textContent = 'Score: ' + score;
-      alert('💕 You collected ' + score + ' hearts! Amazing!');
-    }
+    <div id="content" class="content glass-card">
+        <h1>Our Story ❤️</h1>
+        
+        <div class="nav-buttons">
+            <button onclick="showSection('home')">🏠 Home</button>
+            <button onclick="showSection('memories')">💌 Memories</button>
+            <button onclick="showSection('gallery')">🎞️ Gallery</button>
+            <button onclick="showSection('timeline')">⏰ Timeline</button>
+            <button onclick="showSection('letters')">📝 Letters</button>
+            <button onclick="showSection('games')">🎮 Games</button>
+            <button onclick="showSection('special')">🌟 Special</button>
+            <button onclick="showSection('love')">❤️ Love</button>
+        </div>
 
-    function playMemoryGame() {
-      alert('🎲 Memory game started! Try to remember the sequence!');
-    }
+        <div id="home" class="section">
+            <h3>✨ Welcome to Our World ✨</h3>
+            <p>This is our special space, created with love and devotion for you, Nandini.</p>
+            <p>Every moment with you is a treasure, and this website is dedicated to celebrating our beautiful journey together.</p>
+            <p>🌹 You are my sunshine, my moonlight, and everything in between. 🌹</p>
+        </div>
 
-    function playQuiz() {
-      alert('💝 Quiz: What is our love password? Try any of: nanniii, Nandini, AN, or forever and always');
-    }
+        <div id="memories" class="section" style="display: none;">
+            <h3>💌 Our Beautiful Memories</h3>
+            <p>Every moment spent with you is a memory I cherish forever.</p>
+            <p>From our first meeting to today, you've filled my life with joy and love.</p>
+            <p>Your smile brightens my darkest days. Your laughter is my favorite music. Your love is my greatest blessing.</p>
+        </div>
 
-    function spinWheel() {
-      const prizes = ['💝 Love', '🌹 Roses', '💋 Kiss', '🎁 Surprise', '💞 Forever'];
-      alert('🎯 You won: ' + prizes[Math.floor(Math.random() * prizes.length)]);
-    }
-  </script>
+        <div id="gallery" class="section" style="display: none;">
+            <h3>🎞️ Gallery of Our Love</h3>
+            <p>Every photograph captures a moment of our beautiful love story.</p>
+            <p>The sparkle in your eyes, the warmth of your smile, the magic of your presence - all frozen in time.</p>
+            <p>These are the moments I'll treasure forever.</p>
+        </div>
+
+        <div id="timeline" class="section" style="display: none;">
+            <h3>⏰ Our Timeline</h3>
+            <p>📅 First met: The day my life changed forever</p>
+            <p>💞 First kiss: When time stood still</p>
+            <p>🌹 Today: Still madly in love with you</p>
+            <p>Forever: Promise to love you always and forever</p>
+        </div>
+
+        <div id="letters" class="section" style="display: none;">
+            <h3>📝 Love Letters</h3>
+            <p>Dearest Nandini,</p>
+            <p>Words fail to express the depth of my feelings for you. You are my soulmate, my best friend, my everything.</p>
+            <p>Thank you for being the most beautiful part of my life.</p>
+            <p>Forever yours, 💕</p>
+        </div>
+
+        <div id="games" class="section" style="display: none;">
+            <h3>🎮 Our Special Games</h3>
+            <button onclick="playQuiz()">🎯 Love Quiz</button>
+            <button onclick="playGuessing()">🎲 Guessing Game</button>
+            <button onclick="sendLoveMessage()">💌 Send Love Message</button>
+            <p id="gameResult" style="margin-top: 1rem; color: var(--primary-color);"></p>
+        </div>
+
+        <div id="special" class="section" style="display: none;">
+            <h3>🌟 Special Moments</h3>
+            <p>🎂 Your birthday is the most special day to me</p>
+            <p>💝 Every gift I give you comes from my heart</p>
+            <p>🎉 Celebrating you, celebrating us, celebrating love</p>
+            <p>✨ You make every day special just by being you</p>
+        </div>
+
+        <div id="love" class="section" style="display: none;">
+            <h3>❤️ Why I Love You</h3>
+            <p>Your kindness melts my heart</p>
+            <p>Your smile makes my day brighter</p>
+            <p>Your laughter is my favorite sound</p>
+            <p>Your presence is my safe place</p>
+            <p>Your love is my greatest blessing</p>
+            <p>You are my forever. 💕</p>
+        </div>
+    </div>
+
+    <script>
+        const PASSWORD = 'nandini';
+        let isAuthenticated = localStorage.getItem('auth') === 'true';
+
+        function initFloatingHearts() {
+            const container = document.getElementById('floatingHearts');
+            const heartChars = ['\u2665', '\ud83d\udc96', '\ud83d\udc95', '\ud83d\udc93', '\ud83d\udc9e', '\ud83d\udc9f'];
+            
+            for (let i = 0; i < 15; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.textContent = heartChars[Math.floor(Math.random() * heartChars.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDuration = (Math.random() * 8 + 6) + 's';
+                heart.style.animationDelay = Math.random() * 2 + 's';
+                container.appendChild(heart);
+            }
+            animateHearts();
+        }
+
+        function animateHearts() {
+            setInterval(() => {
+                const hearts = document.querySelectorAll('.heart');
+                hearts.forEach(heart => {
+                    heart.classList.add('active');
+                    setTimeout(() => heart.classList.remove('active'), 100);
+                });
+            }, 3000);
+        }
+
+        function checkPassword() {
+            const passwordInput = document.getElementById('password');
+            const errorDiv = document.getElementById('error');
+            
+            if (passwordInput.value.toLowerCase() === PASSWORD) {
+                isAuthenticated = true;
+                localStorage.setItem('auth', 'true');
+                document.getElementById('login').style.display = 'none';
+                document.getElementById('content').classList.add('active');
+                triggerConfetti();
+                showSection('home');
+            } else {
+                errorDiv.textContent = 'Oops! Not quite right. Think harder!';
+                errorDiv.classList.add('show');
+                setTimeout(() => {
+                    errorDiv.classList.remove('show');
+                    passwordInput.value = '';
+                }, 3000);
+            }
+        }
+
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => section.style.display = 'none');
+            const section = document.getElementById(sectionId);
+            if (section) section.style.display = 'block';
+        }
+
+        function triggerConfetti() {
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.top = '-10px';
+                confetti.textContent = ['\ud83c\udf1f', '\u2728', '\ud83d\udc96', '\ud83d\udc9e', '\ud83c\udf89'][Math.floor(Math.random() * 5)];
+                confetti.style.fontSize = (Math.random() * 20 + 15) + 'px';
+                confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                document.body.appendChild(confetti);
+                setTimeout(() => confetti.remove(), 3000);
+            }
+        }
+
+        function playQuiz() {
+            const questions = [
+                { q: 'What is my favorite color?', a: 'pink' },
+                { q: 'When did we meet?', a: 'forever ago' },
+                { q: 'What is my favorite food?', a: 'love' }
+            ];
+            const q = questions[Math.floor(Math.random() * questions.length)];
+            const answer = prompt(q.q);
+            const result = document.getElementById('gameResult');
+            if (answer && answer.toLowerCase().includes(q.a)) {
+                result.textContent = 'You know me so well!';
+                triggerConfetti();
+            } else {
+                result.textContent = 'Not quite! The answer relates to: ' + q.a;
+            }
+        }
+
+        function playGuessing() {
+            const answers = [
+                'You guessed right! You know my secrets!',
+                'That was close! Try again!',
+                'Lucky guess!'
+            ];
+            const result = document.getElementById('gameResult');
+            result.textContent = answers[Math.floor(Math.random() * answers.length)];
+        }
+
+        function sendLoveMessage() {
+            const messages = [
+                'I love you more than words can say!',
+                'You are my everything!',
+                'Forever and always, Nandini!',
+                'You make my heart skip a beat!',
+                'My love for you is infinite!'
+            ];
+            const result = document.getElementById('gameResult');
+            result.textContent = messages[Math.floor(Math.random() * messages.length)];
+            triggerConfetti();
+        }
+
+        document.getElementById('password').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') checkPassword();
+        });
+
+        if (isAuthenticated) {
+            window.addEventListener('load', function() {
+                document.getElementById('login').style.display = 'none';
+                document.getElementById('content').classList.add('active');
+                showSection('home');
+            });
+        }
+
+        window.addEventListener('load', function() {
+            initFloatingHearts();
+        });
+    </script>
 </body>
 </html>
