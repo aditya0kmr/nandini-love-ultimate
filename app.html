@@ -1,323 +1,198 @@
-114
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Love 💖</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Nandini 💖 Aditya - Our Love Story</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Quicksand:wght@300;400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
     <style>
-        :root { --primary-color: #ff69b4; --secondary-color: #ff1493; --bg-dark: #1a1a2e; --bg-darker: #0f0f1e; --text-light: #ffffff; --text-muted: #b0b0b0; --transition: all 0.3s; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%); color: var(--text-light); min-height: 100vh; overflow-x: hidden; }
-        @keyframes floatHeart { 0% { transform: translateY(100vh) scale(1); opacity: 1; } 100% { transform: translateY(-100vh); opacity: 0; } }
-        @keyframes slideInUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        @keyframes shake { 0%,100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
-        @keyframes confettiFall { to { transform: translateY(100vh) rotate(360deg); opacity: 0; } }
-        @keyframes birthday { 0% { transform: scale(0.5); } 50% { transform: scale(1.2); } 100% { transform: scale(1); } }
-        .floating-hearts { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; overflow: hidden; }
-        .heart { position: absolute; font-size: 2rem; animation: floatHeart linear infinite; opacity: 0; }
-        .glass-card { background: rgba(255, 105, 180, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px); border-radius: 20px; padding: 2rem; box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); }
-        h1 { font-family: 'Dancing Script', cursive; font-size: 3.5rem; color: var(--primary-color); text-shadow: 0 0 20px rgba(255, 105, 180, 0.5); }
-        h2,h3 { font-family: 'Dancing Script', cursive; color: var(--secondary-color); }
-        button { width: 100%; padding: 12px; background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); color: white; border: none; border-radius: 10px; font-weight: 600; cursor: pointer; margin: 8px 0; transition: var(--transition); }
-        button:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(255, 105, 180, 0.6); }
-        input,textarea { width: 100%; padding: 10px; background: rgba(255, 255, 255, 0.05); border: 2px solid rgba(255, 105, 180, 0.3); border-radius: 10px; color: var(--text-light); margin: 5px 0; }
-        .section { display: none; margin: 20px 0; }
-        .section.active { display: block; animation: slideInUp 0.6s ease-out; }
-        .confetti { position: fixed; pointer-events: none; animation: confettiFall 3s linear forwards; }
-        .memory-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 20px 0; }
-        .memory-card { padding: 20px; background: var(--primary-color); border: none; border-radius: 10px; cursor: pointer; color: white; font-weight: bold; }
-        canvas { border: 2px solid var(--primary-color); border-radius: 10px; display: block; margin: 15px 0; background: #000; cursor: crosshair; }
-        .carousel { position: relative; max-width: 100%; margin: 20px 0; }
-        .carousel img { width: 100%; border-radius: 10px; }
-        .carousel-nav { text-align: center; margin-top: 10px; }
-        .carousel-nav button { width: auto; padding: 8px 15px; display: inline-block; margin: 5px; }
-        .message-item { background: rgba(255, 105, 180, 0.15); padding: 15px; margin: 10px 0; border-radius: 10px; border-left: 4px solid var(--primary-color); }
-        .milestone { background: rgba(255, 105, 180, 0.1); padding: 15px; margin: 10px 0; border-radius: 10px; text-align: center; }
-        @media (max-width: 768px) { h1 { font-size: 2.5rem; } button { font-size: 0.9rem; } }
         
-/* Isometric Navigation Bar Styles */
-.nav-container { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 999; justify-content: center; flex-wrap: wrap; max-width: 95%; }
-.nav-btn { padding: 10px 14px; background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); color: white; border: none; border-radius: 12px; cursor: pointer; font-weight: 600; font-size: 13px; transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); position: relative; box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2); transform-style: preserve-3d; }
-.nav-btn::before { content: ''; position: absolute; top: -3px; left: 0; right: 0; height: 3px; background: rgba(255, 255, 255, 0.4); border-radius: 12px 12px 0 0; opacity: 0; transition: opacity 0.3s; }
-.nav-btn:hover { transform: translateY(-4px) rotateX(8deg) rotateZ(2deg); box-shadow: 0 8px 25px rgba(255, 105, 180, 0.6), inset 0 2px 0 rgba(255, 255, 255, 0.3), 0 -5px 15px rgba(0, 0, 0, 0.2); }
-.nav-btn:hover::before { opacity: 1; }
-.nav-btn.active { box-shadow: 0 6px 20px rgba(255, 105, 180, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 105, 180, 0.5); }
-@keyframes isoFloat { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-8px); } }
-.nav-btn { animation: isoFloat 3s ease-in-out infinite; }
-.nav-btn:nth-child(1) { animation-delay: 0s; } .nav-btn:nth-child(2) { animation-delay: 0.15s; } .nav-btn:nth-child(3) { animation-delay: 0.3s; } .nav-btn:nth-child(4) { animation-delay: 0.45s; } .nav-btn:nth-child(5) { animation-delay: 0.6s; } .nav-btn:nth-child(6) { animation-delay: 0.75s; } .nav-btn:nth-child(7) { animation-delay: 0.9s; } .nav-btn:nth-child(8) { animation-delay: 1.05s; }
+        :root {
+            --primary: #ff6b9d;
+            --primary-light: #ff8fab;
+            --primary-dark: #e91e63;
+            --bg-dark: #0f0c29;
+            --bg-medium: #302b63;
+            --bg-light: #24243e;
+            --text-light: #ffffff;
+            --glass-bg: rgba(255,255,255,0.1);
+            --glass-border: rgba(255,255,255,0.2);
+        }
+        
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-medium) 50%, var(--bg-light) 100%);
+            background-attachment: fixed;
+            color: var(--text-light);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
+        #floatingHearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .heart-float {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.3;
+            animation: floatUp 15s infinite linear;
+        }
+        
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+        }
+        
+        #content {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            margin-bottom: 40px;
+            color: var(--primary);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .home-section {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+        
+        /* FLOATING NAVIGATION BAR */
+        #floating-nav {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            padding: 14px 22px;
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 50px;
+            z-index: 9999;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4), inset 0 0 20px rgba(255,107,157,0.08);
+            animation: navSlideUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        @keyframes navSlideUp {
+            from { opacity: 0; transform: translateX(-50%) translateY(30px); }
+            to { opacity: 1; transform: translateX(-50%) translateY(0); }
+        }
+        
+        #floating-nav button {
+            font-size: 1.4rem;
+            padding: 8px 12px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.85;
+        }
+        
+        #floating-nav button:hover {
+            background: rgba(255,107,157,0.35);
+            transform: scale(1.3) translateY(-6px);
+            opacity: 1;
+            box-shadow: 0 0 18px rgba(255,107,157,0.6);
+        }
+        
+        #floating-nav button:active {
+            transform: scale(1.2) translateY(-4px);
+        }
+        
+        @media (max-width: 768px) {
+            #floating-nav {
+                bottom: 15px;
+                padding: 12px 16px;
+                gap: 4px;
+            }
+            
+            #floating-nav button {
+                font-size: 1.2rem;
+                padding: 6px 10px;
+            }
+            
+            h1 { font-size: 2.5rem; }
+            #content { padding: 20px; }
+        }
     </style>
 </head>
-<body><div class="floating-hearts" id="floatingHearts"></div><div id="login" class="login-box glass-card" style="margin-top:5rem;max-width:500px;width:100%;margin-left:auto;margin-right:auto;">
-<h2>💖 For My Love 💖</h2>
-<p style="text-align:center;color:var(--text-muted);">Enter our secret password</p>
-<input type="password" id="password" placeholder="What do you call me? 😉">
-<button onclick="checkPassword()">Unlock Our World 💋</button>
-<div id="error" style="color:#ff6b6b;text-align:center;margin-top:1rem;display:none;"></div>
-</div><div id="content" class="content glass-card" style="max-width:1000px;width:100%;margin:2rem auto;display:none;">
-<h1>❤️ Our Story ❤️</h1>
-<div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:20px 0;">
-<button onclick="showSection('home')">🏠 Home</button>
-<button onclick="showSection('memories')">💌 Memories</button>
-<button onclick="showSection('story')">📝 Story</button>
-<button onclick="showSection('carousel')">🎞️ Photos</button>
-<button onclick="showSection('games')">🎮 Games</button>
-<button onclick="showSection('messages')">💌 Messages</button>
-<button onclick="showSection('canvas')">🎨 Draw</button>
-<button onclick="showSection('special')">🌟 Special</button>
-</div>
-<div id="home" class="section active">
-<h3>✨ Welcome to Our World ✨</h3>
-<p>This is our special space created with love just for you!</p>
-<p id="daysCounter" style="font-size:1.2rem;color:var(--primary-color);font-weight:bold;"></p>
-</div>
-<div id="memories" class="section">
-<h3>💌 Our Memories</h3>
-<p>Every moment with you is precious and magical.</p>
-</div>
-<div id="story" class="section">
-<h3>📝 Our Love Story</h3>
-<p>Write our story together:</p>
-<textarea id="storyText" placeholder="Write our beautiful story here..." rows="6"></textarea>
-<button onclick="saveStory()">Save Story 💖</button>
-<p id="displayStory" style="margin-top:1rem;font-style:italic;color:var(--text-muted);"></p>
-</div>
-<div id="carousel" class="section">
-<h3>🎞️ Photo Carousel</h3>
-<p>Add photo URLs (one per line):</p>
-<textarea id="photoText" placeholder="https://example.com/photo.jpg" rows="4"></textarea>
-<button onclick="loadCarousel()">Load Photos</button>
-<div class="carousel" id="carouselContainer" style="display:none;">
-<img id="carouselImg" src="" alt="">
-<div class="carousel-nav">
-<button onclick="prevPhoto()">Previous</button>
-<span id="photoCount"></span>
-<button onclick="nextPhoto()">Next</button>
-</div>
-</div>
-</div>
-<div id="games" class="section">
-<h3>🎮 Memory Match Game</h3>
-<div class="memory-grid" id="memoryGrid"></div>
-<p id="gameResult" style="text-align:center;color:var(--primary-color);font-weight:bold;"></p>
-</div>
-<div id="messages" class="section">
-<h3>💌 Love Messages</h3>
-<p>Leave a message for each other:</p>
-<input type="text" id="messageInput" placeholder="Write a love message...">
-<button onclick="addMessage()">Send Message 💋</button>
-<div id="messagesList"></div>
-</div>
-<div id="canvas" class="section">
-<h3>🎨 Draw for Me</h3>
-<canvas id="drawingCanvas" width="400" height="300"></canvas>
-<button onclick="clearCanvas()">Clear</button>
-<button onclick="saveDrawing()">Save Drawing</button>
-</div>
-<div id="special" class="section">
-<h3>🌟 Special Moments</h3>
-<div id="milestonesContainer"></div>
-</div>
-</div>
-<script>
-        function checkPassword() {
-        const pwd = document.getElementById('password').value;
-if (pwd === 'forever') {            document.getElementById('login').style.display = 'none';
-            document.getElementById('content').style.display = 'block';
-            initFloatingHearts();
-            initMemoryGame();
-            loadCarousel();
-            displayMessages();
-            initMilestones();
-            updateCountdowns();
-        } else {
-            document.getElementById('error').style.display = 'block';
-            document.getElementById('error').textContent = 'Wrong password! Try again 💔';
-        }
-    }
-    document.getElementById('password')?.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') checkPassword();
-    });
-    function showSection(id) {
-        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-        document.getElementById(id)?.classList.add('active');
-    }
-    function initFloatingHearts() {
-        const container = document.getElementById('floatingHearts');
-        for (let i = 0; i < 15; i++) {
-            const heart = document.createElement('div');
-            heart.className = 'heart';
-            heart.textContent = '❤️';
-            heart.style.left = Math.random() * 100 + '%';
-            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
-            heart.style.animationDelay = (i * 0.2) + 's';
-            container.appendChild(heart);
-        }
-    }
-    function saveStory() {
-        const text = document.getElementById('storyText').value;
-        localStorage.setItem('story', text);
-        document.getElementById('displayStory').textContent = text || 'Your love story awaits...';
-    }
-    function loadCarousel() {
-        const text = document.getElementById('photoText').value;
-        const urls = text.split('\n').filter(u => u.trim());
-        window.carouselPhotos = urls;
-        window.carouselIndex = 0;
-        if (urls.length > 0) {
-            document.getElementById('carouselContainer').style.display = 'block';
-            document.getElementById('carouselImg').src = urls[0];
-            document.getElementById('photoCount').textContent = `1 / ${urls.length}`;
-        }
-    }
-    function prevPhoto() {
-        if (!window.carouselPhotos || window.carouselPhotos.length === 0) return;
-        window.carouselIndex = (window.carouselIndex - 1 + window.carouselPhotos.length) % window.carouselPhotos.length;
-        document.getElementById('carouselImg').src = window.carouselPhotos[window.carouselIndex];
-        document.getElementById('photoCount').textContent = `${window.carouselIndex + 1} / ${window.carouselPhotos.length}`;
-    }
-    function nextPhoto() {
-        if (!window.carouselPhotos || window.carouselPhotos.length === 0) return;
-        window.carouselIndex = (window.carouselIndex + 1) % window.carouselPhotos.length;
-        document.getElementById('carouselImg').src = window.carouselPhotos[window.carouselIndex];
-        document.getElementById('photoCount').textContent = `${window.carouselIndex + 1} / ${window.carouselPhotos.length}`;
-    }
-    function initMemoryGame() {
-        const symbols = ['❤️', '💕', '💖', '💝', '💗', '💓', '💞', '💘'];
-        const grid = document.getElementById('memoryGrid');
-        if (!grid) return;
-        grid.innerHTML = '';
-        const cards = [...symbols, ...symbols];
-        const shuffled = cards.sort(() => Math.random() - 0.5);
-        window.memoryCards = [];
-        shuffled.forEach((symbol, i) => {
-            const card = document.createElement('button');
-            card.className = 'memory-card';
-            card.textContent = '?';
-            card.onclick = () => flipCard(i);
-            grid.appendChild(card);
-            window.memoryCards.push({element: card, symbol: symbol, flipped: false, matched: false});
+<body>
+    <div id="floatingHearts"></div>
+    
+    <div id="content">
+        <h1>❤️ Our Story ❤️</h1>
+        
+        <div class="home-section">
+            <h2 style="font-family: 'Dancing Script', cursive; font-size: 2rem; margin-bottom: 15px;">✨ Welcome to Our World ✨</h2>
+            <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 20px;">This is our special space created with love just for you!</p>
+            <p id="daysCounter" style="font-size: 1.3rem; color: var(--primary); font-weight: bold;">We've been together for 684 amazing days!</p>
+        </div>
+    </div>
+    
+    <nav id="floating-nav"></nav>
+    
+    <script>
+        const navContainer = document.getElementById('floating-nav');
+        const navItems = [
+            { emoji: '🏠', label: 'Home' },
+            { emoji: '💌', label: 'Memories' },
+            { emoji: '📝', label: 'Story' },
+            { emoji: '🎞️', label: 'Photos' },
+            { emoji: '🎮', label: 'Games' },
+            { emoji: '💬', label: 'Messages' },
+            { emoji: '🎨', label: 'Draw' },
+            { emoji: '⭐', label: 'Special' }
+        ];
+        
+        navItems.forEach((item) => {
+            const btn = document.createElement('button');
+            btn.innerHTML = item.emoji;
+            btn.title = item.label;
+            btn.setAttribute('aria-label', item.label);
+            navContainer.appendChild(btn);
         });
-        window.memoryFlipped = [];
-    }
-    function flipCard(index) {
-        if (window.memoryCards[index].flipped || window.memoryCards[index].matched) return;
-        window.memoryCards[index].flipped = true;
-        window.memoryCards[index].element.textContent = window.memoryCards[index].symbol;
-        window.memoryFlipped.push(index);
-        if (window.memoryFlipped.length === 2) {
-            const [i1, i2] = window.memoryFlipped;
-            if (window.memoryCards[i1].symbol === window.memoryCards[i2].symbol) {
-                window.memoryCards[i1].matched = true;
-                window.memoryCards[i2].matched = true;
-                window.memoryFlipped = [];
-                const all = window.memoryCards.every(c => c.matched);
-                if (all) {
-                    setTimeout(() => {
-                        document.getElementById('gameResult').textContent = 'You Won! 🎉 Love conquers all!';
-                        triggerConfetti();
-                    }, 500);
-                }
-            } else {
-                setTimeout(() => {
-                    window.memoryCards[i1].flipped = false;
-                    window.memoryCards[i2].flipped = false;
-                    window.memoryCards[i1].element.textContent = '?';
-                    window.memoryCards[i2].element.textContent = '?';
-                    window.memoryFlipped = [];
-                }, 600);
+        
+        function createFloatingHearts() {
+            const container = document.getElementById('floatingHearts');
+            for (let i = 0; i < 15; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart-float';
+                heart.textContent = '❤️';
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                container.appendChild(heart);
             }
         }
-    }
-    function addMessage() {
-        const input = document.getElementById('messageInput');
-        const text = input.value.trim();
-        if (!text) return;
-        let messages = JSON.parse(localStorage.getItem('messages') || '[]');
-        messages.push({text, date: new Date().toLocaleString()});
-        localStorage.setItem('messages', JSON.stringify(messages));
-        input.value = '';
-        displayMessages();
-    }
-    function displayMessages() {
-        const list = document.getElementById('messagesList');
-        if (!list) return;
-        const messages = JSON.parse(localStorage.getItem('messages') || '[]');
-        list.innerHTML = messages.map(m => `<div class="message-item"><p>${m.text}</p><small>${m.date}</small></div>`).join('');
-    }
-    let canvas, ctx;
-    function initCanvas() {
-        canvas = document.getElementById('drawingCanvas');
-        if (!canvas) return;
-        ctx = canvas.getContext('2d');
-        ctx.fillStyle = '#000';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        ctx.strokeStyle = '#fff';
-        ctx.lineWidth = 2;
-        canvas.onmousedown = (e) => {
-            ctx.beginPath();
-            ctx.moveTo(e.offsetX, e.offsetY);
-        };
-        canvas.onmousemove = (e) => {
-            if (e.buttons) ctx.lineTo(e.offsetX, e.offsetY), ctx.stroke();
-        };
-    }
-    function clearCanvas() {
-        if (canvas) {
-            ctx.fillStyle = '#000';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-        }
-    }
-    function saveDrawing() {
-        if (canvas) {
-            localStorage.setItem('drawing', canvas.toDataURL());
-            alert('Drawing saved! 💕');
-        }
-    }
-    function updateCountdowns() {
-        const meetDate = new Date('2024-01-15');
-        const now = new Date();
-        const days = Math.floor((now - meetDate) / (1000 * 60 * 60 * 24));
-        const daysCounter = document.getElementById('daysCounter');
-        const sinceMet = document.getElementById('sinceMet');
-        if (daysCounter) daysCounter.textContent = `We've been together for ${days} amazing days!`;
-        if (sinceMet) sinceMet.textContent = `${days} days of pure love`;
-    }
-    function triggerConfetti() {
-        for (let i = 0; i < 30; i++) {
-            const conf = document.createElement('div');
-            conf.className = 'confetti';
-            conf.style.left = Math.random() * 100 + '%';
-            conf.style.top = -20 + 'px';
-            conf.style.backgroundColor = ['#ff69b4', '#ff1493', '#ff6b9d'].sort(() => Math.random() - 0.5)[0];
-            conf.textContent = ['❤️', '💕', '💖', '✨'].sort(() => Math.random() - 0.5)[0];
-            document.body.appendChild(conf);
-            setTimeout(() => conf.remove(), 3000);
-        }
-    }
-    function initMilestones() {
-        const container = document.getElementById('milestonesContainer');
-        if (!container) return;
-        const milestones = [
-            {date: '2024-01-15', event: 'When we met 💕'},
-            {date: '2024-06-21', event: 'Our first trip 🌍'},
-            {date: '2025-01-15', event: 'One year together 🎉'}
-        ];
-        container.innerHTML = milestones.map(m => `<div class="milestone"><strong>${m.date}</strong><p>${m.event}</p></div>`).join('');
-    }
-    window.addEventListener('load', () => {
-        initCanvas();
-        const story = localStorage.getItem('story');
-        if (story) document.getElementById('displayStory').textContent = story;
-        displayMessages();
-            // Initialize isometric navigation bar
-    const navContainer = document.createElement('div');
-    navContainer.className = 'nav-container';
-    const buttons = Array.from(document.querySelectorAll('button')).filter(b => b.textContent.includes('🏠') || b.textContent.includes('💌') || b.textContent.includes('📝') || b.textContent.includes('🎞') || b.textContent.includes('🎮') || b.textContent.includes('🎨') || b.textContent.includes('🌟'));
-    buttons.forEach(btn => { btn.classList.add('nav-btn'); btn.onclick = function() { buttons.forEach(b => b.classList.remove('active')); this.classList.add('active'); }; navContainer.appendChild(btn.cloneNode(true)); });
-    document.body.appendChild(navContainer);
-    });
-</script>
+        
+        createFloatingHearts();
+    </script>
 </body>
 </html>
