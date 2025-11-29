@@ -6,497 +6,136 @@
     <title>For My Love 💖</title>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary-color: #ff69b4;
-            --secondary-color: #ff1493;
-            --accent-color: #ffffff;
-            --bg-dark: #1a1a2e;
-            --bg-darker: #0f0f1e;
-            --text-light: #ffffff;
-            --text-muted: #b0b0b0;
-            --glass-bg: rgba(255, 105, 180, 0.1);
-            --glass-border: rgba(255, 255, 255, 0.2);
-            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.2);
-            --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.3);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Quicksand', sans-serif;
-            background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
-            color: var(--text-light);
-            min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        @keyframes floatHeart {
-            0% { transform: translateY(100vh) translateX(0) scale(1); opacity: 1; }
-            10% { transform: translateY(90vh) translateX(100px) scale(1.1); }
-            20% { transform: translateY(80vh) translateX(-80px) scale(0.9); }
-            30% { transform: translateY(70vh) translateX(120px) scale(1.05); }
-            50% { transform: translateY(50vh) translateX(-100px) scale(0.95); opacity: 0.8; }
-            80% { transform: translateY(10vh) translateX(80px) scale(1); opacity: 0.5; }
-            100% { transform: translateY(-100vh) translateX(0) scale(1); opacity: 0; }
-        }
-
-        .floating-hearts {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-            overflow: hidden;
-        }
-
-        .heart {
-            position: absolute;
-            font-size: 2rem;
-            animation: floatHeart linear infinite;
-            opacity: 0;
-        }
-
-        .heart.active {
-            opacity: 1;
-        }
-
-        @media (max-width: 768px) {
-            .heart { font-size: 1rem; }
-        }
-
-        .glass-card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: var(--shadow-lg);
-            transition: var(--transition);
-        }
-
-        .glass-card:hover {
-            background: rgba(255, 105, 180, 0.15);
-            border-color: rgba(255, 255, 255, 0.3);
-            transform: translateY(-5px);
-        }
-
-        h1, h2, h3 {
-            font-family: 'Dancing Script', cursive;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            color: var(--primary-color);
-            text-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
-            margin-bottom: 0.5rem;
-            animation: slideInDown 0.8s ease-out;
-        }
-
-        h2 { font-size: 2rem; color: var(--secondary-color); margin-bottom: 1rem; }
-        h3 { font-size: 1.5rem; color: var(--primary-color); margin-bottom: 0.8rem; }
-
-        @keyframes slideInDown {
-            from { transform: translateY(-50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        @keyframes slideInUp {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        @keyframes glow {
-            0%, 100% { box-shadow: 0 0 10px rgba(255, 105, 180, 0.5), 0 0 20px rgba(255, 105, 180, 0.3); }
-            50% { box-shadow: 0 0 20px rgba(255, 105, 180, 0.8), 0 0 30px rgba(255, 105, 180, 0.5); }
-        }
-
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            75% { transform: translateX(5px); }
-        }
-
-        @keyframes confettiFall {
-            to { transform: translateY(100vh) rotate(360deg); opacity: 0; }
-        }
-
-        .login-box {
-            max-width: 450px;
-            width: 100%;
-            margin: 3rem auto;
-            padding: 3rem;
-            background: rgba(15, 15, 30, 0.8);
-            border: 2px solid var(--primary-color);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 0 40px rgba(255, 105, 180, 0.3);
-            animation: slideInUp 0.8s ease-out 0.3s both;
-        }
-
-        .login-box h2 {
-            text-align: center;
-            margin-bottom: 1rem;
-            font-size: 2.5rem;
-        }
-
-        .subtitle {
-            text-align: center;
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-            color: var(--text-muted);
-        }
-
-        .input-group {
-            margin-bottom: 1.5rem;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--primary-color);
-        }
-
-        input {
-            width: 100%;
-            padding: 12px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(255, 105, 180, 0.3);
-            border-radius: 10px;
-            color: var(--text-light);
-            font-size: 1rem;
-            transition: var(--transition);
-        }
-
-        input:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            background: rgba(255, 105, 180, 0.1);
-            box-shadow: 0 0 20px rgba(255, 105, 180, 0.3);
-        }
-
-        input::placeholder { color: var(--text-muted); }
-
-        button {
-            width: 100%;
-            padding: 14px;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            margin-top: 1rem;
-            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
-        }
-
-        button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255, 105, 180, 0.6);
-        }
-
-        button:active {
-            transform: translateY(-1px);
-        }
-
-        .error-message {
-            color: #ff6b6b;
-            text-align: center;
-            margin-top: 1rem;
-            padding: 10px;
-            background: rgba(255, 107, 107, 0.1);
-            border-left: 4px solid #ff6b6b;
-            border-radius: 5px;
-            display: none;
-            animation: shake 0.5s;
-        }
-
-        .error-message.show {
-            display: block;
-        }
-
-        .content {
-            display: none;
-            padding: 2rem;
-            text-align: center;
-            animation: slideInUp 0.6s ease-out;
-        }
-
-        .content.active {
-            display: block;
-        }
-
-        .nav-buttons {
-            display: flex;
-            gap: 1rem;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .nav-buttons button {
-            flex: 1;
-            min-width: 100px;
-            padding: 12px;
-            font-size: 1rem;
-        }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 1.5rem; }
-            h3 { font-size: 1.2rem; }
-            .login-box { padding: 2rem; }
-            .nav-buttons button { min-width: 80px; font-size: 0.9rem; }
-            .subtitle { font-size: 1rem; }
-        }
-
-        .section { margin-bottom: 2rem; }
-        .section h3 { margin-top: 2rem; }
+        :root { --primary-color: #ff69b4; --secondary-color: #ff1493; --bg-dark: #1a1a2e; --bg-darker: #0f0f1e; --text-light: #ffffff; --text-muted: #b0b0b0; --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Quicksand', sans-serif; background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%); color: var(--text-light); min-height: 100vh; overflow-x: hidden; position: relative; }
+        @keyframes floatHeart { 0% { transform: translateY(100vh) scale(1); opacity: 1; } 100% { transform: translateY(-100vh) scale(1); opacity: 0; } }
+        @keyframes slideInUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
+        @keyframes confettiFall { to { transform: translateY(100vh) rotate(360deg); opacity: 0; } }
+        .floating-hearts { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; overflow: hidden; }
+        .heart { position: absolute; font-size: 2rem; animation: floatHeart linear infinite; opacity: 0; }
+        .glass-card { background: rgba(255, 105, 180, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px); border-radius: 20px; padding: 2rem; box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); transition: var(--transition); }
+        h1 { font-family: 'Dancing Script', cursive; font-size: 3.5rem; color: var(--primary-color); text-shadow: 0 0 20px rgba(255, 105, 180, 0.5); margin-bottom: 0.5rem; }
+        h2 { font-family: 'Dancing Script', cursive; font-size: 2rem; color: var(--secondary-color); margin-bottom: 1rem; }
+        h3 { font-family: 'Dancing Script', cursive; font-size: 1.5rem; color: var(--primary-color); margin-bottom: 0.8rem; }
+        .setup-form, .login-box { max-width: 500px; width: 100%; margin: 2rem auto; padding: 2rem; background: rgba(15, 15, 30, 0.8); border: 2px solid var(--primary-color); border-radius: 20px; }
+        .subtitle { text-align: center; margin-bottom: 2rem; font-size: 1.1rem; color: var(--text-muted); }
+        .input-group { margin-bottom: 1.5rem; }
+        label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--primary-color); }
+        input, textarea, select { width: 100%; padding: 12px; background: rgba(255, 255, 255, 0.05); border: 2px solid rgba(255, 105, 180, 0.3); border-radius: 10px; color: var(--text-light); font-size: 1rem; }
+        input:focus, textarea:focus { outline: none; border-color: var(--primary-color); background: rgba(255, 105, 180, 0.1); box-shadow: 0 0 20px rgba(255, 105, 180, 0.3); }
+        button { width: 100%; padding: 14px; background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); color: white; border: none; border-radius: 10px; font-size: 1.1rem; font-weight: 600; cursor: pointer; margin-top: 1rem; box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4); }
+        button:hover { transform: translateY(-3px); }
+        .error-message { color: #ff6b6b; text-align: center; margin-top: 1rem; padding: 10px; background: rgba(255, 107, 107, 0.1); border-left: 4px solid #ff6b6b; display: none; animation: shake 0.5s; }
+        .error-message.show { display: block; }
+        .content { display: none; padding: 2rem; text-align: center; }
+        .content.active { display: block; }
+        .nav-buttons { display: flex; gap: 1rem; margin: 2rem 0; flex-wrap: wrap; justify-content: center; }
+        .nav-buttons button { flex: 1; min-width: 80px; }
+        .section { margin-bottom: 2rem; display: none; }
+        .section.active { display: block; }
         .section p { line-height: 1.8; color: var(--text-muted); margin-bottom: 1rem; }
-        .confetti {
-            position: fixed;
-            pointer-events: none;
-            animation: confettiFall 3s linear forwards;
-        }
+        .confetti { position: fixed; pointer-events: none; animation: confettiFall 3s linear forwards; }
+        .photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin: 15px 0; }
+        .photo-item { cursor: pointer; border-radius: 10px; overflow: hidden; border: 2px solid var(--primary-color); transition: transform 0.3s; }
+        .photo-item:hover { transform: scale(1.05); }
+        .photo-item img { width: 100%; height: 120px; object-fit: cover; }
+        .lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.95); z-index: 1000; align-items: center; justify-content: center; }
+        .lightbox.active { display: flex; }
+        .lightbox img { max-width: 90%; max-height: 90%; border-radius: 10px; }
+        .close-lightbox { position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; cursor: pointer; }
+        .countdown { font-size: 1.5rem; color: var(--primary-color); font-weight: bold; margin: 1rem 0; }
+        .reason-item { background: rgba(255, 105, 180, 0.1); padding: 15px; margin: 10px 0; border-radius: 10px; border-left: 4px solid var(--primary-color); }
+        .theme-selector { display: flex; gap: 10px; margin: 15px 0; flex-wrap: wrap; justify-content: center; }
+        .theme-btn { width: 40px; height: 40px; border-radius: 50%; cursor: pointer; border: 3px solid transparent; }
+        .theme-btn.active { border-color: white; }
+        @media (max-width: 768px) { h1 { font-size: 2.5rem; } h2 { font-size: 1.5rem; } h3 { font-size: 1.2rem; } }
     </style>
 </head>
-<body>
-    <div class="floating-hearts" id="floatingHearts"></div>
-    
-    <div id="login" class="login-box glass-card">
-        <h2>For My Love <span style="font-size: 2rem;">💖✨</span></h2>
-        <p class="subtitle">Enter our secret password</p>
-        <div class="input-group">
-            <label for="password">🔒 Password</label>
-            <input type="password" id="password" placeholder="What do you call me? 😉" autocomplete="off">
-        </div>
-        <button onclick="checkPassword()">Unlock Our World 💋</button>
-        <div class="error-message" id="error"></div>
+<body><div class="floating-hearts" id="floatingHearts"></div>
+<div id="setupForm" class="setup-form glass-card" style="margin-top:5rem;">
+    <h2>Personalize ✨</h2>
+    <p class="subtitle">Make this uniquely yours</p>
+    <div class="input-group"><label>Your Name</label><input type="text" id="yourName" placeholder="Enter your name"></div>
+    <div class="input-group"><label>Anniversary Date</label><input type="date" id="anniversaryDate"></div>
+    <div class="input-group"><label>First Meeting Date</label><input type="date" id="firstMeetDate"></div>
+    <div class="input-group"><label>Your Photos (URLs, one per line)</label><textarea id="photoURLs" placeholder="https://example.com/photo.jpg" rows="3"></textarea></div>
+    <button onclick="savePersonalization()">Continue 💖</button>
+</div>
+<div id="login" class="login-box" style="display:none;">
+    <h2>For My Love 💖</h2>
+    <p class="subtitle">Enter our secret password</p>
+    <div class="input-group"><label>🔒 Password</label><input type="password" id="password" placeholder="What do you call me? 😉"></div>
+    <button onclick="checkPassword()">Unlock Our World 💋</button>
+    <div class="error-message" id="error"></div>
+</div>
+<div id="content" class="content glass-card" style="display:none;">
+    <h1>Our Story ❤️</h1>
+    <div class="nav-buttons">
+        <button onclick="showSection('home')">🏠 Home</button>
+        <button onclick="showSection('memories')">💌 Memories</button>
+        <button onclick="showSection('gallery')">🎞️ Gallery</button>
+        <button onclick="showSection('timeline')">⏰ Timeline</button>
+        <button onclick="showSection('letters')">📝 Letters</button>
+        <button onclick="showSection('games')">🎮 Games</button>
+        <button onclick="showSection('special')">🌟 Special</button>
+        <button onclick="showSection('love')">❤️ Love</button>
     </div>
-
-    <div id="content" class="content glass-card">
-        <h1>Our Story ❤️</h1>
-        
-        <div class="nav-buttons">
-            <button onclick="showSection('home')">🏠 Home</button>
-            <button onclick="showSection('memories')">💌 Memories</button>
-            <button onclick="showSection('gallery')">🎞️ Gallery</button>
-            <button onclick="showSection('timeline')">⏰ Timeline</button>
-            <button onclick="showSection('letters')">📝 Letters</button>
-            <button onclick="showSection('games')">🎮 Games</button>
-            <button onclick="showSection('special')">🌟 Special</button>
-            <button onclick="showSection('love')">❤️ Love</button>
-        </div>
-
-        <div id="home" class="section">
-            <h3>✨ Welcome to Our World ✨</h3>
-            <p>This is our special space, created with love and devotion for you, Nandini.</p>
-            <p>Every moment with you is a treasure, and this website is dedicated to celebrating our beautiful journey together.</p>
-            <p>🌹 You are my sunshine, my moonlight, and everything in between. 🌹</p>
-        </div>
-
-        <div id="memories" class="section" style="display: none;">
-            <h3>💌 Our Beautiful Memories</h3>
-            <p>Every moment spent with you is a memory I cherish forever.</p>
-            <p>From our first meeting to today, you've filled my life with joy and love.</p>
-            <p>Your smile brightens my darkest days. Your laughter is my favorite music. Your love is my greatest blessing.</p>
-        </div>
-
-        <div id="gallery" class="section" style="display: none;">
-            <h3>🎞️ Gallery of Our Love</h3>
-            <p>Every photograph captures a moment of our beautiful love story.</p>
-            <p>The sparkle in your eyes, the warmth of your smile, the magic of your presence - all frozen in time.</p>
-            <p>These are the moments I'll treasure forever.</p>
-        </div>
-
-        <div id="timeline" class="section" style="display: none;">
-            <h3>⏰ Our Timeline</h3>
-            <p>📅 First met: The day my life changed forever</p>
-            <p>💞 First kiss: When time stood still</p>
-            <p>🌹 Today: Still madly in love with you</p>
-            <p>Forever: Promise to love you always and forever</p>
-        </div>
-
-        <div id="letters" class="section" style="display: none;">
-            <h3>📝 Love Letters</h3>
-            <p>Dearest Nandini,</p>
-            <p>Words fail to express the depth of my feelings for you. You are my soulmate, my best friend, my everything.</p>
-            <p>Thank you for being the most beautiful part of my life.</p>
-            <p>Forever yours, 💕</p>
-        </div>
-
-        <div id="games" class="section" style="display: none;">
-            <h3>🎮 Our Special Games</h3>
-            <button onclick="playQuiz()">🎯 Love Quiz</button>
-            <button onclick="playGuessing()">🎲 Guessing Game</button>
-            <button onclick="sendLoveMessage()">💌 Send Love Message</button>
-            <p id="gameResult" style="margin-top: 1rem; color: var(--primary-color);"></p>
-        </div>
-
-        <div id="special" class="section" style="display: none;">
-            <h3>🌟 Special Moments</h3>
-            <p>🎂 Your birthday is the most special day to me</p>
-            <p>💝 Every gift I give you comes from my heart</p>
-            <p>🎉 Celebrating you, celebrating us, celebrating love</p>
-            <p>✨ You make every day special just by being you</p>
-        </div>
-
-        <div id="love" class="section" style="display: none;">
-            <h3>❤️ Why I Love You</h3>
-            <p>Your kindness melts my heart</p>
-            <p>Your smile makes my day brighter</p>
-            <p>Your laughter is my favorite sound</p>
-            <p>Your presence is my safe place</p>
-            <p>Your love is my greatest blessing</p>
-            <p>You are my forever. 💕</p>
+    <div id="home" class="section active">
+        <h3>✨ Welcome to Our World ✨</h3>
+        <p id="personalGreeting">This is our special space created with love just for you.</p>
+        <p id="daysCounter" class="countdown"></p>
+        <p>🌹 You are my sunshine, my moonlight, and everything in between. 🌹</p>
+    </div>
+    <div id="memories" class="section">
+        <h3>💌 Our Memories</h3>
+        <p>Every moment with you is precious and unforgettable.</p>
+        <p>Your smile, your laugh, your presence - all pure magic.</p>
+    </div>
+    <div id="gallery" class="section">
+        <h3>🎞️ Photo Gallery</h3>
+        <div class="photo-grid" id="photoGrid"></div>
+        <div class="lightbox" id="lightbox">
+            <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+            <img src="" alt="Photo">
         </div>
     </div>
-
-    <script>
-        const PASSWORD = 'nandini';
-        let isAuthenticated = localStorage.getItem('auth') === 'true';
-
-        function initFloatingHearts() {
-            const container = document.getElementById('floatingHearts');
-            const heartChars = ['\u2665', '\ud83d\udc96', '\ud83d\udc95', '\ud83d\udc93', '\ud83d\udc9e', '\ud83d\udc9f'];
-            
-            for (let i = 0; i < 15; i++) {
-                const heart = document.createElement('div');
-                heart.className = 'heart';
-                heart.textContent = heartChars[Math.floor(Math.random() * heartChars.length)];
-                heart.style.left = Math.random() * 100 + '%';
-                heart.style.animationDuration = (Math.random() * 8 + 6) + 's';
-                heart.style.animationDelay = Math.random() * 2 + 's';
-                container.appendChild(heart);
-            }
-            animateHearts();
-        }
-
-        function animateHearts() {
-            setInterval(() => {
-                const hearts = document.querySelectorAll('.heart');
-                hearts.forEach(heart => {
-                    heart.classList.add('active');
-                    setTimeout(() => heart.classList.remove('active'), 100);
-                });
-            }, 3000);
-        }
-
-        function checkPassword() {
-            const passwordInput = document.getElementById('password');
-            const errorDiv = document.getElementById('error');
-            
-            if (passwordInput.value.toLowerCase() === PASSWORD) {
-                isAuthenticated = true;
-                localStorage.setItem('auth', 'true');
-                document.getElementById('login').style.display = 'none';
-                document.getElementById('content').classList.add('active');
-                triggerConfetti();
-                showSection('home');
-            } else {
-                errorDiv.textContent = 'Oops! Not quite right. Think harder!';
-                errorDiv.classList.add('show');
-                setTimeout(() => {
-                    errorDiv.classList.remove('show');
-                    passwordInput.value = '';
-                }, 3000);
-            }
-        }
-
-        function showSection(sectionId) {
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(section => section.style.display = 'none');
-            const section = document.getElementById(sectionId);
-            if (section) section.style.display = 'block';
-        }
-
-        function triggerConfetti() {
-            for (let i = 0; i < 50; i++) {
-                const confetti = document.createElement('div');
-                confetti.className = 'confetti';
-                confetti.style.left = Math.random() * 100 + '%';
-                confetti.style.top = '-10px';
-                confetti.textContent = ['\ud83c\udf1f', '\u2728', '\ud83d\udc96', '\ud83d\udc9e', '\ud83c\udf89'][Math.floor(Math.random() * 5)];
-                confetti.style.fontSize = (Math.random() * 20 + 15) + 'px';
-                confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
-                document.body.appendChild(confetti);
-                setTimeout(() => confetti.remove(), 3000);
-            }
-        }
-
-        function playQuiz() {
-            const questions = [
-                { q: 'What is my favorite color?', a: 'pink' },
-                { q: 'When did we meet?', a: 'forever ago' },
-                { q: 'What is my favorite food?', a: 'love' }
-            ];
-            const q = questions[Math.floor(Math.random() * questions.length)];
-            const answer = prompt(q.q);
-            const result = document.getElementById('gameResult');
-            if (answer && answer.toLowerCase().includes(q.a)) {
-                result.textContent = 'You know me so well!';
-                triggerConfetti();
-            } else {
-                result.textContent = 'Not quite! The answer relates to: ' + q.a;
-            }
-        }
-
-        function playGuessing() {
-            const answers = [
-                'You guessed right! You know my secrets!',
-                'That was close! Try again!',
-                'Lucky guess!'
-            ];
-            const result = document.getElementById('gameResult');
-            result.textContent = answers[Math.floor(Math.random() * answers.length)];
-        }
-
-        function sendLoveMessage() {
-            const messages = [
-                'I love you more than words can say!',
-                'You are my everything!',
-                'Forever and always, Nandini!',
-                'You make my heart skip a beat!',
-                'My love for you is infinite!'
-            ];
-            const result = document.getElementById('gameResult');
-            result.textContent = messages[Math.floor(Math.random() * messages.length)];
-            triggerConfetti();
-        }
-
-        document.getElementById('password').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') checkPassword();
-        });
-
-        if (isAuthenticated) {
-            window.addEventListener('load', function() {
-                document.getElementById('login').style.display = 'none';
-                document.getElementById('content').classList.add('active');
-                showSection('home');
-            });
-        }
-
-        window.addEventListener('load', function() {
-            initFloatingHearts();
-        });
-    </script>
-</body>
-</html>
+    <div id="timeline" class="section">
+        <h3>⏰ Our Timeline</h3>
+        <div id="timelineContent"></div>
+    </div>
+    <div id="letters" class="section">
+        <h3>📝 Love Letters</h3>
+        <p>Dearest Nandini,</p>
+        <p>Words cannot express the depth of my feelings for you. You are my soulmate, my best friend, my everything.</p>
+        <p>Thank you for being the most beautiful part of my life.</p>
+        <p>Forever yours, 💕</p>
+    </div>
+    <div id="games" class="section">
+        <h3>🎮 Games & Fun</h3>
+        <button onclick="playQuiz()">🎯 Love Quiz</button>
+        <button onclick="playMemory()">🧠 Memory Match</button>
+        <button onclick="sendLoveMsg()">💌 Love Message</button>
+        <p id="gameResult" style="margin-top:1rem;"></p>
+    </div>
+    <div id="special" class="section">
+        <h3>🌟 Special Moments</h3>
+        <button onclick="toggleTheme()">🎨 Change Theme</button>
+        <div class="theme-selector" id="themeSelector" style="display:none;">
+            <button class="theme-btn" style="background:#ff69b4" onclick="applyTheme('#ff69b4')"></button>
+            <button class="theme-btn" style="background:#9d4edd" onclick="applyTheme('#9d4edd')"></button>
+            <button class="theme-btn" style="background:#00b4d8" onclick="applyTheme('#00b4d8')"></button>
+            <button class="theme-btn" style="background:#ff6b6b" onclick="applyTheme('#ff6b6b')"></button>
+            <button class="theme-btn" style="background:#ffd700" onclick="applyTheme('#ffd700')"></button>
+        </div>
+        <p>Your birthday: <span id="birthdayCounter"></span></p>
+        <p>Days since we met: <span id="sinceMet"></span></p>
+    </div>
+    <div id="love" class="section">
+        <h3>❤️ Why I Love You</h3>
+        <div id="reasonsList"></div>
+        <p id="customReasons"></p>
+    </div>
+</div>
+<script>const PASSWORD='nandini';let personalData={};function initFloatingHearts(){const container=document.getElementById('floatingHearts');const hearts=['\u2665','\ud83d\udc96','\ud83d\udc95','\ud83d\udc93','\ud83d\udc9e'];for(let i=0;i<15;i++){const h=document.createElement('div');h.className='heart';h.textContent=hearts[Math.floor(Math.random()*hearts.length)];h.style.left=Math.random()*100+'%';h.style.animationDuration=(Math.random()*8+6)+'s';h.style.animationDelay=Math.random()*2+'s';container.appendChild(h);}}function savePersonalization(){personalData={yourName:document.getElementById('yourName').value||'Love',hisName:'Nandini',anniversaryDate:document.getElementById('anniversaryDate').value,firstMeetDate:document.getElementById('firstMeetDate').value,photoURLs:document.getElementById('photoURLs').value.split('\n').filter(u=>u.trim())};localStorage.setItem('personalData',JSON.stringify(personalData));document.getElementById('setupForm').style.display='none';document.getElementById('login').style.display='block';updateCountdowns();}function checkPassword(){const pwd=document.getElementById('password').value;if(pwd.toLowerCase()===PASSWORD){localStorage.setItem('auth','true');document.getElementById('login').style.display='none';document.getElementById('content').style.display='block';triggerConfetti();showSection('home');loadPhotos();}else{const err=document.getElementById('error');err.textContent='Oops! Not quite right! Think harder! \ud83d\ude09';err.classList.add('show');setTimeout(()=>{err.classList.remove('show');document.getElementById('password').value='';},2000);}}function showSection(id){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById(id)?.classList.add('active');}function loadPhotos(){const grid=document.getElementById('photoGrid');grid.innerHTML='';personalData.photoURLs?.forEach(url=>{if(url.trim()){const div=document.createElement('div');div.className='photo-item';div.innerHTML=`<img src="${url.trim()}" onclick="openPhoto('${url.trim()}')">`;grid.appendChild(div);}});}function openPhoto(url){document.getElementById('lightbox').classList.add('active');document.querySelector('#lightbox img').src=url;}function closeLightbox(){document.getElementById('lightbox').classList.remove('active');}function triggerConfetti(){for(let i=0;i<50;i++){const c=document.createElement('div');c.className='confetti';c.style.left=Math.random()*100+'%';c.style.top='-10px';c.textContent=['\ud83c\udf1f','\u2728','\ud83d\udc96','\ud83d\udc9e','\ud83c\udf89'][Math.floor(Math.random()*5)];c.style.fontSize=(Math.random()*20+15)+'px';c.style.animationDuration=(Math.random()*2+2)+'s';document.body.appendChild(c);setTimeout(()=>c.remove(),3000);}}function updateCountdowns(){if(personalData.anniversaryDate){const target=new Date(personalData.anniversaryDate).getTime();const now=new Date().getTime();const days=Math.ceil((target-now)/(1000*60*60*24));document.getElementById('daysCounter').textContent=days>0?`\ud83d\udcc5 Only ${days} days until our anniversary!`:'\ud83c\udf89 Today is our anniversary! \ud83c\udf89';}if(personalData.firstMeetDate){const meet=new Date(personalData.firstMeetDate).getTime();const now=new Date().getTime();const daysSince=Math.floor((now-meet)/(1000*60*60*24));document.getElementById('sinceMet').textContent=daysSince+' days';}}function playQuiz(){const q=['What is my favorite color?','When did we meet?','What is my favorite food?'];const a=prompt(q[Math.floor(Math.random()*q.length)]);document.getElementById('gameResult').textContent=a?'\ud83c\udf1f You got it! \ud83c\udf1f':'Maybe next time! \ud83d\ude0a';}function playMemory(){document.getElementById('gameResult').textContent='\ud83e\udde0 Memory game loading...';triggerConfetti();}function sendLoveMsg(){const msgs=['I love you to the moon and back! \ud83d\udc96','You are my everything! \ud83d\udc9e','Forever yours, my love! \u2764\ufe0f'];document.getElementById('gameResult').textContent=msgs[Math.floor(Math.random()*msgs.length)];triggerConfetti();}function toggleTheme(){const selector=document.getElementById('themeSelector');selector.style.display=selector.style.display==='none'?'flex':'none';}function applyTheme(color){document.documentElement.style.setProperty('--primary-color',color);document.getElementById('themeSelector').style.display='none';}document.getElementById('password').addEventListener('keypress',e=>{if(e.key==='Enter')checkPassword();});window.addEventListener('load',()=>{initFloatingHearts();const saved=localStorage.getItem('personalData');if(saved){personalData=JSON.parse(saved);document.getElementById('setupForm').style.display='none';document.getElementById('login').style.display='block';updateCountdowns();}const auth=localStorage.getItem('auth')==='true';if(auth){document.getElementById('login').style.display='none';document.getElementById('content').style.display='block';loadPhotos();updateCountdowns();}});</script></body></html>
