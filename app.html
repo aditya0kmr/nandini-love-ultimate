@@ -1,281 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nandini 💖 Aditya - Our Love Story</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Quicksand:wght@300;400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        :root {
-            --primary: #ff6b9d;
-            --primary-light: #ff8fab;
-            --primary-dark: #e91e63;
-            --bg-dark: #0f0c29;
-            --bg-medium: #302b63;
-            --bg-light: #24243e;
-            --text-light: #ffffff;
-            --glass-bg: rgba(255,255,255,0.1);
-            --glass-border: rgba(255,255,255,0.2);
-        }
-        
-        body {
-            font-family: 'Quicksand', sans-serif;
-            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-medium) 50%, var(--bg-light) 100%);
-            background-attachment: fixed;
-            color: var(--text-light);
-            overflow-x: hidden;
-            min-height: 100vh;
-        }
-        
-        #floatingHearts {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            overflow: hidden;
-        }
-        
-        .heart-float {
-            position: absolute;
-            font-size: 2rem;
-            opacity: 0.3;
-            animation: floatUp 15s infinite linear;
-        }
-        
-        @keyframes floatUp {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.6; }
-            90% { opacity: 0.6; }
-            100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
-        }
-        
-        #content {
-            max-width: 1000px;
-            margin: 60px auto;
-            padding: 40px;
-            text-align: center;
-        }
-        
-        h1 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 3.5rem;
-            margin-bottom: 40px;
-            color: var(--primary);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        .home-section {
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-        }
-        
-        /* FLOATING NAVIGATION BAR */
-        #floating-nav {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 8px;
-            padding: 14px 22px;
-            background: rgba(255,255,255,0.08);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255,255,255,0.15);
-            border-radius: 50px;
-            z-index: 9999;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.4), inset 0 0 20px rgba(255,107,157,0.08);
-            animation: navSlideUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-        
-        @keyframes navSlideUp {
-            from { opacity: 0; transform: translateX(-50%) translateY(30px); }
-            to { opacity: 1; transform: translateX(-50%) translateY(0); }
-        }
-        
-        #floating-nav button {
-            font-size: 1.4rem;
-            padding: 8px 12px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0.85;
-        }
-        
-        #floating-nav button:hover {
-            background: rgba(255,107,157,0.35);
-            transform: scale(1.3) translateY(-6px);
-            opacity: 1;
-            box-shadow: 0 0 18px rgba(255,107,157,0.6);
-        }
-        
-        #floating-nav button:active {
-            transform: scale(1.2) translateY(-4px);
-        }
-        
-        @media (max-width: 768px) {
-            #floating-nav {
-                bottom: 15px;
-                padding: 12px 16px;
-                gap: 4px;
-            }
-            
-            #floating-nav button {
-                font-size: 1.2rem;
-                padding: 6px 10px;
-            }
-            
-            h1 { font-size: 2.5rem; }
-            #content { padding: 20px; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nandini 💖 Aditya - Our Love Story</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --primary: #ff69b4;
+      --primary-light: #ff8fab;
+      --primary-dark: #e91e63;
+      --bg-dark: #0f0c29;
+      --bg-medium: #302b63;
+      --bg-light: #24243e;
+      --text-light: #ffffff;
+      --glass-bg: rgba(255,255,255,0.1);
+      --glass-border: rgba(255,255,255,0.2);
+      --cyan: #00d9ff;
+    }
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-medium) 50%, var(--bg-light) 100%);
+      background-attachment: fixed;
+      color: var(--text-light);
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+    #floatingHearts {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none; z-index: -1; overflow: hidden;
+    }
+    .heart-float {
+      position: absolute;
+      font-size: 2rem;
+      opacity: 0.3;
+      animation: floatUp 15s infinite linear;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      10% { opacity: 0.6; }
+      90% { opacity: 0.6; }
+      100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+    }
+    #content {
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 40px;
+      text-align: center;
+    }
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3.5rem;
+      margin-bottom: 40px;
+      color: var(--primary);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    .home-section {
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+    /* 3D Navigation Bar */
+    #floating-nav {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      padding: 14px 22px;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 50px;
+      z-index: 9999;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+      animation: navSlideUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    @keyframes navSlideUp {
+      from { opacity: 0; transform: translateX(-50%) translateY(30px); }
+      to { opacity: 1; transform: translateX(-50%) translateY(0); }
+    }
+    .nav-icon-container {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border-radius: 50%;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      opacity: 0.85;
+      position: relative;
+    }
+    .nav-icon-container:hover {
+      background: rgba(255,107,157,0.35);
+      transform: scale(1.3) translateY(-6px);
+      opacity: 1;
+      box-shadow: 0 0 18px rgba(255,107,157,0.6);
+    }
+    .nav-icon-container:active {
+      transform: scale(1.2) translateY(-4px);
+    }
+    .nav-tooltip {
+      position: absolute;
+      bottom: 60px;
+      background: rgba(0,0,0,0.9);
+      color: var(--cyan);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      z-index: 10000;
+    }
+    .nav-icon-container:hover .nav-tooltip {
+      opacity: 1;
+    }
+    @media (max-width: 768px) {
+      #floating-nav { bottom: 15px; padding: 12px 16px; gap: 4px; }
+      .nav-icon-container { width: 40px; height: 40px; font-size: 1.2rem; }
+      h1 { font-size: 2.5rem; }
+      #content { padding: 20px; }
+    }
+  </style>
 </head>
 <body>
-    <div id="floatingHearts"></div>
-    
-    <div id="content">
-        <h1>❤️ Our Story ❤️</h1>
-        
-        <div class="home-section">
-            <h2 style="font-family: 'Dancing Script', cursive; font-size: 2rem; margin-bottom: 15px;">✨ Welcome to Our World ✨</h2>
-            <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 20px;">This is our special space created with love just for you!</p>
-            <p id="daysCounter" style="font-size: 1.3rem; color: var(--primary); font-weight: bold;">We've been together for 684 amazing days!</p>
-        </div>
+  <div id="floatingHearts"></div>
+  <div id="content">
+    <h1>❤️ Our Story ❤️</h1>
+    <div class="home-section">
+      <h2 style="font-family: 'Dancing Script', cursive; font-size: 2rem; margin-bottom: 15px;">✨ Welcome to Our World ✨</h2>
+      <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 20px;">This is our special space created with love just for you!</p>
+      <p id="daysCounter" style="font-size: 1.3rem; color: var(--primary); font-weight: bold;">We've been together for 684 amazing days!</p>
     </div>
-    
-    <nav id="floating-nav"></nav>
-    
-    <script>
-        const navContainer = document.getElementById('floating-nav');
-        const navItems = [
-            { emoji: '🏠', label: 'Home' },
-            { emoji: '💌', label: 'Memories' },
-            { emoji: '📝', label: 'Story' },
-            { emoji: '🎞️', label: 'Photos' },
-            { emoji: '🎮', label: 'Games' },
-            { emoji: '💬', label: 'Messages' },
-            { emoji: '🎨', label: 'Draw' },
-            { emoji: '⭐', label: 'Special' }
-        ];
-        
-        navItems.forEach((item) => {
-            const btn = document.createElement('button');
-            btn.innerHTML = item.emoji;
-            btn.title = item.label;
-            btn.setAttribute('aria-label', item.label);
-            navContainer.appendChild(btn);
-        });
-        
-        function createFloatingHearts() {
-            const container = document.getElementById('floatingHearts');
-            for (let i = 0; i < 15; i++) {
-                const heart = document.createElement('div');
-                heart.className = 'heart-float';
-                heart.textContent = '❤️';
-                heart.style.left = Math.random() * 100 + '%';
-                heart.style.animationDelay = Math.random() * 5 + 's';
-                container.appendChild(heart);
-            }
-        }
-        
-        createFloatingHearts();
-        
-// Fix: Add navigation button click handlers
-const contentDiv = document.getElementById('content');
-const navButtons = document.querySelectorAll('#floating-nav button');
+  </div>
 
-const sections = {
-  'Home': {
-    title: '❤️ Our Story ❤️',
-    heading: '✨ Welcome to Our World ✨',
-    text: 'This is our special space created with love just for you!',
-    subtext: 'We\'ve been together for 684 amazing days!'
-  },
-  'Memories': {
-    title: '❤️ Our Beautiful Memories ❤️',
-    heading: '📌 Cherished Moments',
-    text: 'Every moment with you is precious and unforgettable.',
-    subtext: 'These memories keep me smiling every day...'
-  },
-  'Story': {
-    title: '❤️ Our Love Story ❤️',
-    heading: '💫 Once Upon a Time...',
-    text: 'It all started with a smile, a look, and a feeling.',
-    subtext: 'And now you\'re my favorite chapter in life.'
-  },
-  'Photos': {
-    title: '❤️ Gallery of Love ❤️',
-    heading: '🖼️ Picture Perfect Moments',
-    text: 'Every photo captures a moment frozen in time with you.',
-    subtext: 'Thousands of moments, millions of memories.'
-  },
-  'Games': {
-    title: '❤️ Games & Fun ❤️',
-    heading: '🎮 Let\'s Play Together',
-    text: 'Creating fun memories together is what life is all about.',
-    subtext: 'Laughter is the best medicine, especially with you.'
-  },
-  'Messages': {
-    title: '❤️ Special Messages ❤️',
-    heading: '💬 Words From the Heart',
-    text: 'These are my thoughts, my feelings, my love for you.',
-    subtext: 'Every word is written with all my love.'
-  },
-  'Draw': {
-    title: '❤️ Artistic Expressions ❤️',
-    heading: '🎭 Creative Love',
-    text: 'Drawing inspiration from my love for you.',
-    subtext: 'Every stroke is a reflection of my heart.'
-  },
-  'Special': {
-    title: '❤️ Special Surprise ❤️',
-    heading: '✨ Something Special ✨',
-    text: 'I have something very special to share with you.',
-    subtext: 'Are you ready? Click here to reveal...',
-    isSpecial: true
-  }
-};
+  <!-- 3D Navigation Bar with Three.js -->
+  <nav id="floating-nav"></nav>
 
-function updateContent(sectionName) {
-  const section = sections[sectionName];
-  if (!section) return;
+  <!-- Three.js Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   
-  contentDiv.innerHTML = `
-    <h1>${section.title}</h1>
-    <h2>${section.heading}</h2>
-    <p>${section.text}</p>
-    <p id="daysCounter" style="color: #ff6b9d; font-weight: bold; margin-top: 1rem;">${section.subtext}</p>
-    ${section.isSpecial ? '<button id="revealBtn" style="margin-top: 2rem; padding: 10px 20px; background: #ff6b9d; color: white; border: none; border-radius: 20px; cursor: pointer; font-size: 1.1rem;">Reveal Secret ❤️</button>' : ''}
-  `;
-  
-  if (section.isSpecial) {
-    document.getElementById('revealBtn')?.addEventListener('click', () => {
-      alert('🌟 I love you more than words can say! 🌟');
+  <script>
+    // Navigation items with 3D support
+    const navItems = [
+      { emoji: '🏠', label: 'Home', icon: 'house', color: 0xff69b4 },
+      { emoji: '💌', label: 'Memories', icon: 'envelope', color: 0xff1493 },
+      { emoji: '📝', label: 'Story', icon: 'story', color: 0xffd700 },
+      { emoji: '🎞️', label: 'Photos', icon: 'photos', color: 0x00d9ff },
+      { emoji: '🎮', label: 'Games', icon: 'games', color: 0xff69b4 },
+      { emoji: '💬', label: 'Messages', icon: 'messages', color: 0xff1493 },
+      { emoji: '🎨', label: 'Draw', icon: 'draw', color: 0xffd700 },
+      { emoji: '⭐', label: 'Special', icon: 'star', color: 0x00d9ff }
+    ];
+
+    // Create simple 3D House icon using canvas/emoji for better compatibility
+    function createNavIcon(item) {
+      const container = document.createElement('div');
+      container.className = 'nav-icon-container';
+      container.title = item.label;
+      
+      // Create icon with enhanced styling
+      const icon = document.createElement('div');
+      icon.innerHTML = item.emoji;
+      icon.style.fontSize = '1.8rem';
+      icon.style.filter = `drop-shadow(0 0 8px ${item.color === 0xff69b4 ? 'rgba(255, 107, 157, 0.8)' : item.color === 0xff1493 ? 'rgba(255, 20, 147, 0.8)' : item.color === 0xffd700 ? 'rgba(255, 215, 0, 0.8)' : 'rgba(0, 217, 255, 0.8)'})`;
+      container.appendChild(icon);
+      
+      // Add tooltip
+      const tooltip = document.createElement('div');
+      tooltip.className = 'nav-tooltip';
+      tooltip.textContent = item.label;
+      container.appendChild(tooltip);
+      
+      // Add click handler
+      container.addEventListener('click', () => updateContent(item.label));
+      
+      return container;
+    }
+
+    // Initialize navigation
+    const navContainer = document.getElementById('floating-nav');
+    navItems.forEach(item => {
+      navContainer.appendChild(createNavIcon(item));
     });
-  }
-}
 
-navButtons.forEach(btn => {
-  btn.addEventListener('click', function() {
-    const label = this.getAttribute('title') || this.textContent.trim();
-    updateContent(label);
-  });
-});
+    // Content sections
+    const contentDiv = document.getElementById('content');
+    const sections = {
+      'Home': {
+        title: '❤️ Our Story ❤️',
+        heading: '✨ Welcome to Our World ✨',
+        text: 'This is our special space created with love just for you!',
+        subtext: 'We\'ve been together for 684 amazing days!'
+      },
+      'Memories': {
+        title: '❤️ Our Beautiful Memories ❤️',
+        heading: '📌 Cherished Moments',
+        text: 'Every moment with you is precious and unforgettable.',
+        subtext: 'These memories keep me smiling every day...'
+      },
+      'Story': {
+        title: '❤️ Our Love Story ❤️',
+        heading: '💫 Once Upon a Time...',
+        text: 'It all started with a smile, a look, and a feeling.',
+        subtext: 'And now you\'re my favorite chapter in life.'
+      },
+      'Photos': {
+        title: '❤️ Gallery of Love ❤️',
+        heading: '🖼️ Picture Perfect Moments',
+        text: 'Every photo captures a moment frozen in time with you.',
+        subtext: 'Thousands of moments, millions of memories.'
+      },
+      'Games': {
+        title: '❤️ Games & Fun ❤️',
+        heading: '🎮 Let\'s Play Together',
+        text: 'Creating fun memories together is what life is all about.',
+        subtext: 'Laughter is the best medicine, especially with you.'
+      },
+      'Messages': {
+        title: '❤️ Special Messages ❤️',
+        heading: '💬 Words From the Heart',
+        text: 'These are my thoughts, my feelings, my love for you.',
+        subtext: 'Every word is written with all my love.'
+      },
+      'Draw': {
+        title: '❤️ Artistic Expressions ❤️',
+        heading: '🎭 Creative Love',
+        text: 'Drawing inspiration from my love for you.',
+        subtext: 'Every stroke is a reflection of my heart.'
+      },
+      'Special': {
+        title: '❤️ Special Surprise ❤️',
+        heading: '✨ Something Special ✨',
+        text: 'I have something very special to share with you.',
+        subtext: 'Are you ready? Click here to reveal...',
+        isSpecial: true
+      }
+    };
 
-    </script>
+    function updateContent(sectionName) {
+      const section = sections[sectionName];
+      if (!section) return;
+      
+      contentDiv.innerHTML = `
+        <h1>${section.title}</h1>
+        <div class="home-section">
+          <h2 style="font-family: 'Dancing Script', cursive; font-size: 2rem; margin-bottom: 15px;">${section.heading}</h2>
+          <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 20px;">${section.text}</p>
+          <p id="daysCounter" style="color: #ff69b4; font-weight: bold; margin-top: 1rem;">${section.subtext}</p>
+          ${section.isSpecial ? '<button id="revealBtn" style="margin-top: 2rem; padding: 10px 20px; background: #ff69b4; color: white; border: none; border-radius: 20px; cursor: pointer; font-size: 1.1rem;">Reveal Secret ❤️</button>' : ''}
+        </div>
+      `;
+      
+      if (section.isSpecial) {
+        document.getElementById('revealBtn')?.addEventListener('click', () => {
+          alert('🌟 I love you more than words can say! 🌟');
+        });
+      }
+    }
+
+    // Floating hearts animation
+    function createFloatingHearts() {
+      const container = document.getElementById('floatingHearts');
+      for (let i = 0; i < 15; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart-float';
+        heart.textContent = '❤️';
+        heart.style.left = Math.random() * 100 + '%';
+        heart.style.animationDelay = Math.random() * 5 + 's';
+        container.appendChild(heart);
+      }
+    }
+
+    createFloatingHearts();
+  </script>
 </body>
 </html>
