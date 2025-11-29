@@ -6,8 +6,7 @@ const HomePage = () => (
   <div style={styles.container}>
     <h1 style={styles.title}>Our Love Story</h1>
     <p>Aadi & Nandini 💕</p>
-    <p>684 Amazing Days Together</p>
-    <p>"It all started with a smile, a look, and a feeling."</p>
+ a look, and a feeling."</p>
     <p>"And now you're my favorite chapter in life."</p>
   </div>
 );
