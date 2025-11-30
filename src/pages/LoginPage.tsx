@@ -18,7 +18,7 @@ const LoginPage: React.FC = () => {
     setError('');
 
     try {
-      if (password === 'nanniii') {
+      if (password === 'forever and always') {
         login();
         navigate('/home');
       } else {
