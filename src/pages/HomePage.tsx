@@ -2,13 +2,10 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import Navigation from '../components/Navigation';
-import ImageWithLazy from '../components/ImageWithLazy';
-import { DESIGN, CONTENT } from '../utils/constants';
 
 const HomePage: React.FC = () => {
   const { isAuthenticated } = useAuth();
   const navigate = useNavigate();
-  const { nandiniName, qualities, favoriteQuotes } = CONTENT.about;
 
   useEffect(() => {
     if (!isAuthenticated) navigate('/login');
@@ -20,198 +17,150 @@ const HomePage: React.FC = () => {
     <div style={styles.container}>
       <Navigation />
       <div style={styles.content}>
-        {/* Hero Section with 3D */}
         <div style={styles.heroSection}>
-          <div style={styles.heroContent}>
-            <h1 style={styles.title}>💛 Our Story Begins 3D</h1>
-            <p style={styles.subtitle}>{nandiniName} - My Everything</p>
-            <div style={styles.description}>
-              <p>You are the love of my life. Every moment with you is magical.</p>
-              <p>This website is dedicated to celebrating you, us, and our beautiful journey together.</p>
+          <h1 style={styles.title}>Heart Our Story Heart</h1>
+          <div style={styles.welcomeBox}>
+            <h2 style={styles.subtitle}>Stars Welcome to Our World Stars</h2>
+            <p>This is our special space created with love just for you!</p>
+            <p style={styles.daysCounter}>We've been together for 684 amazing days!</p>
+          </div>
+        </div>
+
+        <div style={styles.linksSection}>
+          <h3 style={styles.sectionTitle}>Explore Our Love Story</h3>
+          <div style={styles.linksGrid}>
+            <div style={styles.linkCard} onClick={() => navigate('/letters')}>
+              <span style={styles.linkIcon}>BookMark</span>
+              <p>Love Letters</p>
+            </div>
+            <div style={styles.linkCard} onClick={() => navigate('/gallery')}>
+              <span style={styles.linkIcon}>Camera</span>
+              <p>Gallery</p>
+            </div>
+            <div style={styles.linkCard} onClick={() => navigate('/timeline')}>
+              <span style={styles.linkIcon}>Calendar</span>
+              <p>Timeline</p>
+            </div>
+            <div style={styles.linkCard} onClick={() => navigate('/surprise')}>
+              <span style={styles.linkIcon}>Gift</span>
+              <p>Surprise</p>
             </div>
           </div>
-          <div style={styles.heroImage}>
-            <ImageWithLazy
-              src="image_001.jpg"
-              alt="Our moment"
-              width="300px"
-              height="300px"
-            />
-          </div>
         </div>
 
-        {/* Qualities Section */}
-        <div style={styles.section}>
-          <h2 style={styles.sectionTitle}>Why I Love You</h2>
-          <div style={styles.qualitiesGrid}>
-            {qualities.map((q, idx) => (
-              <div key={idx} style={styles.qualityCard}>
-                <div style={styles.emoji}>{q.emoji}</div>
-                <h3 style={styles.qualityTitle}>{q.title}</h3>
-                <p style={styles.qualityDesc}>{q.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Featured Quote */}
         <div style={styles.quoteSection}>
-          <h2 style={styles.quoteTitle}>"❤️ {favoriteQuotes[0]?.text} ❤️"</h2>
-          <p style={styles.quoteAuthor}>- {favoriteQuotes[0]?.author}</p>
-        </div>
-
-        {/* CTA Buttons */}
-        <div style={styles.ctaButtons}>
-          <button style={{...styles.btn, ...styles.primaryBtn}} onClick={() => navigate('/love-letters')}>
-            📝 Read Love Letters
-          </button>
-          <button style={{...styles.btn, ...styles.secondaryBtn}} onClick={() => navigate('/gallery')}>
-            📸 View Gallery
-          </button>
-          <button style={{...styles.btn, ...styles.secondaryBtn}} onClick={() => navigate('/timeline')}>
-            💭 Our Timeline
-          </button>
-          <button style={{...styles.btn, ...styles.secondaryBtn}} onClick={() => navigate('/surprise')}>
-            🎉 Surprise Me!
-          </button>
+          <p style={styles.quote}>With you, every moment feels like forever, and that's exactly how I want it to be.</p>
+          <p style={styles.quoteAuthor}>- Aadi</p>
         </div>
       </div>
     </div>
   );
 };
 
-const styles = {
+const styles: { [key: string]: React.CSSProperties } = {
   container: {
+    width: '100%',
     minHeight: '100vh',
-    background: DESIGN.gradients.primary,
-    paddingTop: '80px',
-    paddingBottom: '40px'
-  },
-  content: {
-    maxWidth: '1200px',
-    margin: '0 auto',
-    padding: '40px 20px'
-  },
-  heroSection: {
-    display: 'flex' as const,
-    alignItems: 'center',
-    gap: '60px',
-    marginBottom: '80px',
-    flexWrap: 'wrap' as const
-  },
-  heroContent: {
-    flex: 1,
-    minWidth: '300px'
-  },
-  title: {
-    fontSize: '3.5rem',
-    fontWeight: 'bold',
-    color: DESIGN.colors.white,
-    marginBottom: '1rem',
-    textShadow: '0 2px 20px rgba(255, 20, 147, 0.4)'
-  },
-  subtitle: {
-    fontSize: '2rem',
-    color: DESIGN.colors.lightPink,
-    marginBottom: '2rem'
-  },
-  description: {
-    fontSize: '1.1rem',
-    color: DESIGN.colors.white,
-    lineHeight: '1.8',
-    opacity: 0.95
-  },
-  heroImage: {
-    flex: 1,
-    minWidth: '300px',
+    background: 'linear-gradient(135deg, #1a0033 0%, #2d1b4e 50%, #1a0033 100%)',
     display: 'flex',
-    justifyContent: 'center'
-  },
-  section: {
-    marginBottom: '80px'
-  },
-  sectionTitle: {
+    flexDirection: 'column',
+    padding: '20px',
+    overflow: 'auto',
+  } as React.CSSProperties,
+  content: {
+    width: '100%',
+    maxWidth: '800px',
+    margin: '0 auto',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '30px',
+    paddingBottom: '120px',
+  } as React.CSSProperties,
+  heroSection: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: '20px',
+    marginTop: '20px',
+  } as React.CSSProperties,
+  title: {
     fontSize: '2.5rem',
-    color: DESIGN.colors.white,
-    marginBottom: '3rem',
-    textAlign: 'center' as const
-  },
-  qualitiesGrid: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-    gap: '2rem'
-  },
-  qualityCard: {
-    background: 'rgba(255, 255, 255, 0.1)',
-    border: `2px solid ${DESIGN.colors.lightPink}`,
-    borderRadius: DESIGN.borderRadius.large,
-    padding: '2rem',
-    textAlign: 'center' as const,
-    transition: DESIGN.transitions.smooth,
-    backdropFilter: 'blur(10px)',
-    '&:hover': {
-      transform: 'translateY(-10px)',
-      boxShadow: `0 20px 40px rgba(255, 20, 147, 0.3)`
-    }
-  },
-  emoji: {
-    fontSize: '3rem',
-    marginBottom: '1rem'
-  },
-  qualityTitle: {
-    fontSize: '1.3rem',
-    color: DESIGN.colors.lightPink,
-    marginBottom: '0.5rem'
-  },
-  qualityDesc: {
-    color: DESIGN.colors.white,
-    fontSize: '0.95rem'
-  },
-  quoteSection: {
-    background: 'rgba(255, 20, 147, 0.1)',
-    border: `3px solid ${DESIGN.colors.primary}`,
-    borderRadius: DESIGN.borderRadius.large,
-    padding: '3rem',
-    textAlign: 'center' as const,
-    marginBottom: '60px',
-    backdropFilter: 'blur(10px)'
-  },
-  quoteTitle: {
-    fontSize: '2rem',
-    color: DESIGN.colors.white,
-    marginBottom: '1rem',
-    fontStyle: 'italic'
-  },
-  quoteAuthor: {
-    fontSize: '1rem',
-    color: DESIGN.colors.lightPink,
-    fontWeight: 'bold'
-  },
-  ctaButtons: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-    gap: '1.5rem',
-    marginTop: '4rem'
-  },
-  btn: {
-    padding: '1rem 2rem',
-    fontSize: '1rem',
     fontWeight: 'bold',
-    border: 'none',
-    borderRadius: DESIGN.borderRadius.large,
+    color: '#ff69b4',
+    textAlign: 'center',
+    margin: '0',
+  } as React.CSSProperties,
+  welcomeBox: {
+    background: 'rgba(100, 50, 150, 0.3)',
+    backdropFilter: 'blur(10px)',
+    border: '1px solid rgba(255, 105, 180, 0.3)',
+    borderRadius: '20px',
+    padding: '30px',
+    textAlign: 'center',
+    color: '#fff',
+  } as React.CSSProperties,
+  subtitle: {
+    fontSize: '1.8rem',
+    margin: '0 0 15px 0',
+    color: '#ffd700',
+  } as React.CSSProperties,
+  daysCounter: {
+    fontSize: '1.2rem',
+    fontWeight: 'bold',
+    color: '#ff69b4',
+    margin: '15px 0 0 0',
+  } as React.CSSProperties,
+  linksSection: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '15px',
+  } as React.CSSProperties,
+  sectionTitle: {
+    fontSize: '1.5rem',
+    color: '#ffd700',
+    textAlign: 'center',
+    margin: '10px 0',
+  } as React.CSSProperties,
+  linksGrid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(2, 1fr)',
+    gap: '15px',
+  } as React.CSSProperties,
+  linkCard: {
+    background: 'rgba(100, 50, 150, 0.25)',
+    backdropFilter: 'blur(10px)',
+    border: '1px solid rgba(255, 105, 180, 0.3)',
+    borderRadius: '15px',
+    padding: '20px',
     cursor: 'pointer',
-    transition: DESIGN.transitions.smooth,
-    boxShadow: '0 10px 30px rgba(255, 20, 147, 0.3)'
-  },
-  primaryBtn: {
-    background: DESIGN.gradients.secondary,
-    color: DESIGN.colors.white
-  },
-  secondaryBtn: {
-    background: 'rgba(255, 255, 255, 0.2)',
-    color: DESIGN.colors.white,
-    border: `2px solid ${DESIGN.colors.lightPink}`
-  }
+    transition: 'all 0.3s ease',
+    textAlign: 'center',
+    color: '#fff',
+  } as React.CSSProperties,
+  linkIcon: {
+    fontSize: '2rem',
+    display: 'block',
+    marginBottom: '10px',
+  } as React.CSSProperties,
+  quoteSection: {
+    background: 'rgba(255, 105, 180, 0.1)',
+    backdropFilter: 'blur(10px)',
+    border: '2px solid rgba(255, 105, 180, 0.3)',
+    borderRadius: '15px',
+    padding: '25px',
+    textAlign: 'center',
+  } as React.CSSProperties,
+  quote: {
+    fontSize: '1.1rem',
+    fontStyle: 'italic',
+    color: '#fff',
+    margin: '0 0 10px 0',
+  } as React.CSSProperties,
+  quoteAuthor: {
+    fontSize: '0.95rem',
+    color: '#ffd700',
+    margin: '0',
+  } as React.CSSProperties,
 };
 
 export default HomePage;
