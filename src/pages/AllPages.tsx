@@ -30,6 +30,13 @@ const GalleryPage = () => ({
 const TimelinePage = () => ({
   title: "📅 Our Love Timeline",
   milestones: [
+    { day: "First Hello", title: "When We Met", text: "The day everything changed. The moment I saw you, I knew you were special. The day I met my forever." },
+        { day: "Best Friends", title: "Our Bond Grows", text: "We became inseparable. Laughter, late-night calls, endless conversations. You became my best friend before my love." },
+        { day: "The Shift", title: "Something Changed", text: "One moment everything shifted. The way I looked at you changed. Friendship wasn't enough anymore. I realized I was falling." },
+    { day: "The Confession", title: "I Love You", text: "I finally told you what my heart had been screaming. The scariest and best moment was when I confessed my love." },
+    { day: "First Date", title: "Our Beginning", text: "Our first date as more than friends. Every moment was magical. I knew I wanted forever with you from that moment." },
+    { day: "Unbreakable Us", title: "United as One", text: "Through every challenge, you've been my rock. We're unbreakable together. This is just the beginning of our forever." },
+        { day: "Day 684", title: "The Horizon & Forever", text: "Today and all our tomorrows. 684 days of loving you more. Our story is just beginning, and forever isn't long enough with you." }
     { day: "Day 1", title: "When We Met", text: "The day everything changed. The day I met my forever." },
     { day: "Day 100", title: "First Milestone", text: "100 days with you and I'm completely in love. Every moment feels precious." },
     { day: "Day 365", title: "First Anniversary", text: "One year with you, Nanniii. One year of laughter, love, and endless moments." },
